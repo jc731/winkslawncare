@@ -1,12 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+// Blog listing — add Astro content collection and real posts when ready (see DO_THIS.md)
 ---
 
-<Layout>
+<Layout title="Blog — Wink's Lawn Care" description="Blog and updates from Wink's Lawn Care.">
   <main class="page">
     <header class="header">
-      <h1>Wink's Lawn Care</h1>
-      <p class="tagline">Lawn care in Central Illinois — Champaign and surrounding areas.</p>
+      <h1>Blog</h1>
+      <p class="tagline">Tips, updates, and news.</p>
     </header>
 
     <nav class="nav">
@@ -15,22 +16,11 @@ import Layout from '../layouts/Layout.astro';
     </nav>
 
     <section class="section">
-      <h2>Areas we serve</h2>
-      <p>Central Illinois, primarily around the Champaign area. More specific towns and radius TBD — update in DO_THIS.md and here when set.</p>
-    </section>
-
-    <section class="section">
-      <h2>Contact</h2>
-      <p><em>Contact details TBD</em> — add phone, email, or contact form in DO_THIS.md and then update this section.</p>
-    </section>
-
-    <section class="section">
-      <h2>Blog</h2>
-      <p>Tips, updates, and news. <a href="/blog/">View blog</a>.</p>
+      <p>No posts yet. Add content via Astro content collections (e.g. <code>src/content/blog/</code>) when ready — see DO_THIS.md.</p>
     </section>
 
     <footer class="footer">
-      <p>Wink's Lawn Care · Central Illinois</p>
+      <p><a href="/">Wink's Lawn Care</a> · Central Illinois</p>
     </footer>
   </main>
 </Layout>
@@ -52,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
   .tagline {
     color: #555;
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .nav {
     margin-bottom: 2rem;
@@ -68,23 +58,20 @@ import Layout from '../layouts/Layout.astro';
   .section {
     margin-bottom: 2rem;
   }
-  .section h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-    color: #333;
-  }
   .section p {
     margin: 0;
     color: #444;
     line-height: 1.5;
   }
+  .section code {
+    background: #f0f0f0;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
   .section a {
     color: #0d6efd;
     text-decoration: none;
-  }
-  .section a:hover {
-    text-decoration: underline;
   }
   .footer {
     margin-top: 3rem;

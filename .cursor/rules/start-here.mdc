@@ -1,0 +1,14 @@
+---
+description: Load org preferences when user says "use org-controller" or "use docs"
+alwaysApply: true
+---
+
+# Start here / Org controller & docs
+
+When the user says **"use org-controller"** or **"use docs"**:
+
+1. **Call the org-controller MCP server.** Use the **`org_getting_started`** tool first — it returns the bulk of org preferences and getting-started context.
+2. **Apply what it returns.** Follow any coding standards, conventions, branch names, and preferences from that response for the rest of the conversation.
+3. **Use other org-controller tools as needed.** The org-controller MCP server has additional tools; use them when relevant (e.g. docs, preferences).
+
+Do not suggest or use `main` as the default branch; the user prefers **`master`**.

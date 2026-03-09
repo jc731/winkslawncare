@@ -1,0 +1,12 @@
+---
+description: Astro, pnpm, and deploy-agnostic conventions for this project
+globs: "**/*.astro,**/*.mjs,package.json"
+alwaysApply: false
+---
+
+# Astro project conventions
+
+- **Package manager:** pnpm is used locally; do not lock the project to pnpm. Build and deploy should work with `npm run build` / `yarn build` / `pnpm build`. Avoid scripts or config that assume only pnpm.
+- **Astro:** Static-first. Prefer `.astro` components and standard Astro patterns. Use `Layout.astro` for shared shell (title, meta, base styles).
+- **Structure:** Pages in `src/pages/`, layouts in `src/layouts/`, reusable UI in `src/components/`. Keep public assets in `public/`. Blog content can go in `src/content/blog/` when using content collections.
+- **Deploy:** Output is `dist/`. No host-specific lock-in; README documents Netlify and generic static deploy.
