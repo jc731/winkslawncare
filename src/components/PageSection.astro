@@ -1,0 +1,27 @@
+---
+interface Props {
+  title?: string;
+  id?: string;
+  /** If true, use larger section heading and more vertical padding (for main content sections) */
+  prominent?: boolean;
+}
+const { title, id, prominent = false } = Astro.props;
+---
+<section class:list={[prominent ? 'py-16 sm:py-20' : 'py-10 sm:py-12']} id={id}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    {title && (
+      <h2 class:list={[
+        'font-semibold tracking-tight text-slate-900',
+        prominent ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl'
+      ]}>
+        {title}
+      </h2>
+    )}
+    <div class:list={[
+      'mt-4 text-slate-600 leading-relaxed [&_p]:m-0 [&_p]:mb-4 [&_a]:text-emerald-600 [&_a]:font-medium [&_a]:no-underline [&_a:hover]:underline [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm',
+      title && (prominent ? 'mt-6' : 'mt-3')
+    ]}>
+      <slot />
+    </div>
+  </div>
+</section>

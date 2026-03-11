@@ -1,0 +1,21 @@
+---
+import Container from './Container.astro';
+---
+<footer class="bg-slate-50">
+  <Container>
+    <div class="py-12 sm:py-16">
+      <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+        <a href="/" class="text-lg font-semibold tracking-tight text-slate-900 no-underline hover:text-slate-700">Wink's Lawn Care</a>
+        <nav class="flex items-center gap-6 text-sm" aria-label="Footer">
+          <a href="/" class="text-slate-600 no-underline hover:text-slate-900">Home</a>
+          <a href="/blog/" class="text-slate-600 no-underline hover:text-slate-900">Blog</a>
+          <a href="/#contact" class="text-slate-600 no-underline hover:text-slate-900">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="flex flex-col items-center border-t border-slate-200 py-8 sm:flex-row-reverse sm:justify-between sm:items-center">
+      <p class="m-0 text-sm text-slate-500">Central Illinois — Champaign and surrounding areas.</p>
+      <p class="m-0 mt-4 text-sm text-slate-500 sm:mt-0">© {new Date().getFullYear()} Wink's Lawn Care</p>
+    </div>
+  </Container>
+</footer>

@@ -1,96 +1,127 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import PageLayout from '../components/PageLayout.astro';
+import PageSection from '../components/PageSection.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import Badge from '../components/Badge.astro';
+import heroImage from '../images/lawn_care_low.jpg';
+import mowerImage from '../images/mower_close.jpg';
+import edgingImage from '../images/weed_eater_edging.jpg';
+import lawnCloseup from '../images/lawn_closeup.jpg';
+import mowerAbove from '../images/mower_above.jpg';
 ---
 
-<Layout>
-  <main class="page">
-    <header class="header">
-      <h1>Wink's Lawn Care</h1>
-      <p class="tagline">Lawn care in Central Illinois — Champaign and surrounding areas.</p>
-    </header>
+<PageLayout current="home">
+  <>
+    <!-- Hero: full-bleed image with overlay and headline -->
+    <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none">
+      <div class="relative aspect-[16/9] sm:aspect-[21/9] w-full">
+        <Image
+          src={heroImage}
+          alt=""
+          width={1400}
+          height={630}
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-slate-900/50" aria-hidden="true" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+          <Badge variant="emerald" class="mb-4 bg-emerald-500/20 text-emerald-100">
+            Locally owned · Central Illinois
+          </Badge>
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Lawn care in Central Illinois
+          </h1>
+          <p class="mt-4 max-w-2xl text-lg font-medium text-white/90 sm:text-xl">
+            Mowing, edging, and trimming — we keep your lawn looking sharp. Champaign and surrounding areas.
+          </p>
+          <Button href="/#contact" variant="secondary" class="mt-8 bg-white text-slate-900 hover:bg-white/90">
+            Get a free quote
+          </Button>
+        </div>
+      </div>
+    </section>
 
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-    </nav>
+    <!-- Services -->
+    <PageSection title="Services" prominent>
+      <p>We offer <strong>mowing</strong>, <strong>edging</strong>, and <strong>trimming</strong> to keep your lawn looking sharp. Regular maintenance or one-time cleanups — we can tailor a schedule to your property. Rates: contact us for a quote.</p>
+      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <Card>
+          <Image src={mowerImage} alt="Lawn mower for mowing service." width={560} height={374} class="mb-4 h-56 w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold text-slate-900">Mowing</h3>
+          <p class="mt-1 text-sm text-slate-600">
+            Regular cuts to keep your yard even, tidy, and ready to enjoy all season long.
+          </p>
+        </Card>
+        <Card>
+          <Image src={edgingImage} alt="Weed eater and edging along a walkway." width={560} height={374} class="mb-4 h-56 w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold text-slate-900">Edging & trimming</h3>
+          <p class="mt-1 text-sm text-slate-600">
+            Clean lines along sidewalks, driveways, and beds for a crisp, finished look.
+          </p>
+        </Card>
+      </div>
+    </PageSection>
 
-    <section class="section">
-      <h2>Areas we serve</h2>
+    <!-- Our work: alternating background -->
+    <section class="bg-slate-50">
+      <PageSection title="Our work" prominent>
+        <p>Quality mowing and clean edges — we take pride in the details.</p>
+        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Card>
+            <Image src={lawnCloseup} alt="Close-up of a well-maintained lawn." width={560} height={374} class="mb-4 h-56 w-full rounded-xl object-cover" />
+            <h3 class="text-lg font-semibold text-slate-900">Thick, healthy turf</h3>
+            <p class="mt-1 text-sm text-slate-600">
+              Strong, even growth that looks great from the street and feels good underfoot.
+            </p>
+          </Card>
+          <Card>
+            <Image src={mowerAbove} alt="Lawn mower at work from above." width={560} height={374} class="mb-4 h-56 w-full rounded-xl object-cover" />
+            <h3 class="text-lg font-semibold text-slate-900">Clean passes & patterns</h3>
+            <p class="mt-1 text-sm text-slate-600">
+              Straight, consistent cuts that make your yard stand out in the neighborhood.
+            </p>
+          </Card>
+        </div>
+      </PageSection>
+    </section>
+
+    <!-- Areas we serve -->
+    <PageSection title="Areas we serve" prominent>
       <p>Central Illinois, primarily around the Champaign area. More specific towns and radius TBD — update in DO_THIS.md and here when set.</p>
+    </PageSection>
+
+    <!-- Contact -->
+    <section class="bg-slate-50">
+      <PageSection title="Contact" id="contact">
+        <p><em>Contact details TBD</em> — add phone, email, or contact form in DO_THIS.md and then update this section.</p>
+      </PageSection>
     </section>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p><em>Contact details TBD</em> — add phone, email, or contact form in DO_THIS.md and then update this section.</p>
-    </section>
-
-    <section class="section">
-      <h2>Blog</h2>
+    <!-- Blog teaser -->
+    <PageSection title="Blog">
       <p>Tips, updates, and news. <a href="/blog/">View blog</a>.</p>
+    </PageSection>
+
+    <!-- CTA band (stereotypical Tailwind marketing block) -->
+    <section class="bg-emerald-600 py-16 sm:py-20">
+      <Container>
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready for a greener lawn?
+          </h2>
+          <p class="mt-4 text-lg text-emerald-100">
+            Get in touch for a free quote. We serve Champaign and surrounding areas.
+          </p>
+          <a
+            href="/#contact"
+            class="mt-8 inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-emerald-600 no-underline shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Get a free quote
+          </a>
+        </div>
+      </Container>
     </section>
-
-    <footer class="footer">
-      <p>Wink's Lawn Care · Central Illinois</p>
-    </footer>
-  </main>
-</Layout>
-
-<style>
-  .page {
-    max-width: 42rem;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  .header {
-    margin-bottom: 1.5rem;
-  }
-  .header h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem;
-  }
-  .tagline {
-    color: #555;
-    margin: 0;
-    font-size: 1.1rem;
-  }
-  .nav {
-    margin-bottom: 2rem;
-  }
-  .nav a {
-    margin-right: 1rem;
-    color: #0d6efd;
-    text-decoration: none;
-  }
-  .nav a:hover {
-    text-decoration: underline;
-  }
-  .section {
-    margin-bottom: 2rem;
-  }
-  .section h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-    color: #333;
-  }
-  .section p {
-    margin: 0;
-    color: #444;
-    line-height: 1.5;
-  }
-  .section a {
-    color: #0d6efd;
-    text-decoration: none;
-  }
-  .section a:hover {
-    text-decoration: underline;
-  }
-  .footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #666;
-  }
-</style>
+  </>
+</PageLayout>

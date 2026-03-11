@@ -1,83 +1,40 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-// Blog listing — add Astro content collection and real posts when ready (see DO_THIS.md)
+import { getCollection } from 'astro:content';
+import PageLayout from '../../components/PageLayout.astro';
+import PageSection from '../../components/PageSection.astro';
+import Button from '../../components/Button.astro';
+
+const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout title="Blog — Wink's Lawn Care" description="Blog and updates from Wink's Lawn Care.">
-  <main class="page">
-    <header class="header">
-      <h1>Blog</h1>
-      <p class="tagline">Tips, updates, and news.</p>
-    </header>
+<PageLayout title="Blog — Wink's Lawn Care" description="Blog and updates from Wink's Lawn Care." current="blog">
+  <header class="py-12 sm:py-16" slot="header">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Blog</h1>
+      <p class="mt-2 text-lg text-slate-600">Tips, updates, and news.</p>
+    </div>
+  </header>
 
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-
-    <section class="section">
-      <p>No posts yet. Add content via Astro content collections (e.g. <code>src/content/blog/</code>) when ready — see DO_THIS.md.</p>
-    </section>
-
-    <footer class="footer">
-      <p><a href="/">Wink's Lawn Care</a> · Central Illinois</p>
-    </footer>
-  </main>
-</Layout>
-
-<style>
-  .page {
-    max-width: 42rem;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  .header {
-    margin-bottom: 1.5rem;
-  }
-  .header h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem;
-  }
-  .tagline {
-    color: #555;
-    margin: 0;
-    font-size: 1rem;
-  }
-  .nav {
-    margin-bottom: 2rem;
-  }
-  .nav a {
-    margin-right: 1rem;
-    color: #0d6efd;
-    text-decoration: none;
-  }
-  .nav a:hover {
-    text-decoration: underline;
-  }
-  .section {
-    margin-bottom: 2rem;
-  }
-  .section p {
-    margin: 0;
-    color: #444;
-    line-height: 1.5;
-  }
-  .section code {
-    background: #f0f0f0;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  .section a {
-    color: #0d6efd;
-    text-decoration: none;
-  }
-  .footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #666;
-  }
-</style>
+  <PageSection>
+    {posts.length === 0 ? (
+      <p>No posts yet. Add markdown files in <code>src/content/blog/</code> — see DO_THIS.md.</p>
+    ) : (
+      <ul class="list-none m-0 p-0">
+        {posts.map((post) => (
+          <li class="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <a href={`/blog/${post.id}`} class="font-medium text-emerald-600 no-underline hover:underline">{post.data.title}</a>
+              <time datetime={post.data.pubDate.toISOString()} class="mt-1 block text-sm text-slate-500">
+                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </div>
+            <Button href={`/blog/${post.id}`} size="sm" variant="ghost" class="mt-1 sm:mt-0">
+              Read post
+            </Button>
+          </li>
+        ))}
+      </ul>
+    )}
+  </PageSection>
+</PageLayout>

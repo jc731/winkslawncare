@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: 'info' | 'warning';
+  title?: string;
+  class?: string;
+}
+
+const {
+  variant = 'info',
+  title,
+  class: className,
+} = Astro.props;
+
+const base =
+  'w-full rounded-xl border px-4 py-3 sm:px-5 sm:py-3.5 flex gap-3 items-start text-sm';
+
+const variantClass =
+  variant === 'warning'
+    ? 'border-amber-300 bg-amber-50 text-amber-900'
+    : 'border-emerald-300 bg-emerald-50 text-emerald-900';
+---
+<div class:list={[base, variantClass, className]} role="status">
+  <div class="mt-0.5">
+    {variant === 'warning' ? (
+      <span aria-hidden="true" class="text-lg">
+        ⚠️
+      </span>
+    ) : (
+      <span aria-hidden="true" class="text-lg">
+        ℹ️
+      </span>
+    )}
+  </div>
+  <div class="space-y-1">
+    {title && <p class="font-semibold">{title}</p>}
+    <div class="[&_p]:m-0 [&_p]:mb-1.5">
+      <slot />
+    </div>
+  </div>
+</div>
+
