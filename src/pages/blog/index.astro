@@ -3,38 +3,178 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../components/PageLayout.astro';
 import PageSection from '../../components/PageSection.astro';
 import Button from '../../components/Button.astro';
+import Card from '../../components/Card.astro';
 
-const posts = (await getCollection('blog', ({ data }) => data.draft !== true))
+const allPosts = (await getCollection('blog', ({ data }) => data.draft !== true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPost =
+  allPosts.find((p) => p.data.featured === true) ?? allPosts[0];
+
+/** Searchable list: all posts with safe search text for client-side filter */
+function searchText(post: (typeof allPosts)[0]): string {
+  const title = post.data.title ?? '';
+  const desc = post.data.description ?? '';
+  const tags = (post.data.tags ?? []).join(' ');
+  return [title, desc, tags].join(' ').toLowerCase();
+}
 ---
 
-<PageLayout title="Blog — Wink's Lawn Care" description="Blog and updates from Wink's Lawn Care." current="blog">
-  <header class="py-10 sm:py-12" slot="header">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Blog</h1>
-      <p class="mt-2 text-lg text-slate-600">Tips, updates, and news.</p>
+<PageLayout
+  title="Blog — Wink's Lawn Care"
+  description="Lawn care tips, how-tos, and seasonal advice for Central Illinois. Search and browse all articles."
+  current="blog"
+>
+  <header class="border-b border-slate-200 bg-white" slot="header">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        Blog
+      </h1>
+      <p class="mt-2 text-lg text-slate-600">
+        Tips, how-tos, and seasonal lawn care for Central Illinois. Find what you need below.
+      </p>
+
+      <label for="blog-search" class="sr-only">Search articles</label>
+      <div class="mt-6 sm:mt-8">
+        <input
+          id="blog-search"
+          type="search"
+          autocomplete="off"
+          placeholder="Search by topic, keyword, or tag…"
+          aria-describedby="blog-search-desc"
+          class="w-full max-w-xl rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3.5 sm:text-base"
+        />
+        <p id="blog-search-desc" class="mt-2 text-sm text-slate-500">
+          Filters the list below as you type.
+        </p>
+      </div>
     </div>
   </header>
 
-  <PageSection>
-    {posts.length === 0 ? (
-      <p>No posts yet. Add markdown files in <code>src/content/blog/</code> — see DO_THIS.md.</p>
-    ) : (
-      <ul class="list-none m-0 p-0">
-        {posts.map((post) => (
-          <li class="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <a href={`/blog/${post.id}`} class="font-medium text-emerald-600 no-underline hover:underline">{post.data.title}</a>
-              <time datetime={post.data.pubDate.toISOString()} class="mt-1 block text-sm text-slate-500">
-                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-              </time>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Featured post (above the fold on desktop; search is first) -->
+    <section class="py-8 sm:py-10" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+        Featured
+      </h2>
+      <Card class="mt-4">
+        <a href={`/blog/${featuredPost.id}`} class="block no-underline group">
+          <span class="text-sm font-medium text-emerald-600">Featured article</span>
+          <h3 class="mt-1 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
+            {featuredPost.data.title}
+          </h3>
+          <p class="mt-2 text-slate-600 max-h-[3.75em] overflow-hidden sm:max-h-[4.5em]">
+            {featuredPost.data.description}
+          </p>
+          <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+            <time datetime={featuredPost.data.pubDate.toISOString()}>
+              {featuredPost.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
+              <span class="flex flex-wrap gap-1">
+                {featuredPost.data.tags.slice(0, 4).map((tag) => (
+                  <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-600">{tag}</span>
+                ))}
+              </span>
+            )}
+          </div>
+          <span class="mt-3 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
+            Read article →
+          </span>
+        </a>
+      </Card>
+    </section>
+
+    <!-- All articles: searchable list -->
+    <PageSection title="All articles" prominent>
+      <p class="mb-6 text-slate-600">
+        Browse by title, topic, or use the search above to filter.
+      </p>
+
+      <ul
+        id="blog-posts-list"
+        class="list-none space-y-4 p-0"
+        role="list"
+      >
+        {allPosts.map((post) => (
+          <li
+            data-post-id={post.id}
+            data-search={searchText(post)}
+            class="border-b border-slate-100 pb-4 last:border-0 last:pb-0"
+          >
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <div class="min-w-0 flex-1">
+                <a
+                  href={`/blog/${post.id}`}
+                  class="font-medium text-emerald-600 no-underline hover:underline"
+                >
+                  {post.data.title}
+                </a>
+                <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <span class="flex flex-wrap gap-1">
+                      {post.data.tags.slice(0, 3).map((tag) => (
+                        <span class="rounded bg-slate-100 px-1.5 py-0.5 text-slate-500">{tag}</span>
+                      ))}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <Button
+                href={`/blog/${post.id}`}
+                size="sm"
+                variant="ghost"
+                class="mt-1 shrink-0 sm:mt-0"
+              >
+                Read post
+              </Button>
             </div>
-            <Button href={`/blog/${post.id}`} size="sm" variant="ghost" class="mt-1 sm:mt-0">
-              Read post
-            </Button>
           </li>
         ))}
       </ul>
-    )}
-  </PageSection>
+
+      <p
+        id="blog-no-results"
+        class="hidden mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-6 text-center text-slate-600"
+        role="status"
+        aria-live="polite"
+      >
+        No articles match your search. Try different keywords or clear the search box.
+      </p>
+    </PageSection>
+  </div>
+
+  <script define:vars={{ hasPosts: allPosts.length > 0 }}>
+    if (hasPosts) {
+      const searchInput = document.getElementById('blog-search');
+      const list = document.getElementById('blog-posts-list');
+      const noResults = document.getElementById('blog-no-results');
+
+      if (searchInput && list) {
+        searchInput.addEventListener('input', () => {
+          const q = searchInput.value.trim().toLowerCase();
+          const items = list.querySelectorAll('[data-post-id]');
+          let visible = 0;
+          items.forEach((el) => {
+            const text = (el.getAttribute('data-search') || '');
+            const show = !q || text.includes(q);
+            el.classList.toggle('hidden', !show);
+            if (show) visible++;
+          });
+          if (noResults) noResults.classList.toggle('hidden', visible > 0);
+        });
+      }
+    }
+  </script>
 </PageLayout>
