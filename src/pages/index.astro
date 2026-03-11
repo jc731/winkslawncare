@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import PageLayout from '../components/PageLayout.astro';
 import PageSection from '../components/PageSection.astro';
 import Container from '../components/Container.astro';
@@ -12,6 +13,12 @@ import mowerImage from '../images/mower_close.jpg';
 import edgingImage from '../images/weed_eater_edging.jpg';
 import lawnCloseup from '../images/lawn_closeup.jpg';
 import mowerAbove from '../images/mower_above.jpg';
+
+const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
+const homepageSlugs = ['why-a-great-lawn-matters', 'how-to-mow-like-a-pro', 'seasonal-lawn-care-calendar'];
+const featuredPosts = homepageSlugs
+  .map((slug) => allPosts.find((p) => p.id === slug))
+  .filter(Boolean);
 ---
 
 <PageLayout current="home">
@@ -103,9 +110,29 @@ import mowerAbove from '../images/mower_above.jpg';
       <p>Central Illinois, primarily around Rantoul and the Champaign area. We serve <strong>Champaign</strong>, <strong>Rantoul</strong>, <strong>Paxton</strong>, <strong>Mahomet</strong>, <strong>St. Joseph</strong>, and surrounding towns.</p>
     </PageSection>
 
-    <!-- Blog teaser -->
-    <PageSection title="Blog">
-      <p>Tips, updates, and news. <a href="/blog/">View blog</a>.</p>
+    <!-- Blog: learn what you can do -->
+    <PageSection title="Learn what you can do" prominent>
+      <p class="mb-6">Practical tips and how-tos for a healthier, better-looking lawn — from mowing and edging to seasonal care.</p>
+      <ul class="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredPosts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`} class="group block rounded-xl border border-slate-200 bg-white p-4 no-underline shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:p-5">
+              <h3 class="font-semibold text-slate-900 group-hover:text-emerald-700">
+                {post.data.title}
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-600 line-clamp-2">
+                {post.data.description}
+              </p>
+              <span class="mt-2 inline-block text-sm font-medium text-emerald-600 group-hover:underline">
+                Read more →
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6">
+        <a href="/blog/" class="font-medium text-emerald-600 no-underline hover:underline">View all articles</a>
+      </p>
     </PageSection>
 
     <!-- CTA band (stereotypical Tailwind marketing block) -->
