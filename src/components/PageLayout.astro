@@ -8,13 +8,13 @@ import Button from './Button.astro';
 interface Props {
   title?: string;
   description?: string;
-  current?: 'home' | 'blog';
+  current?: 'home' | 'blog' | 'contact';
 }
 const { title, description, current } = Astro.props;
 ---
 <Layout title={title} description={description}>
   <div class="flex flex-col min-h-full bg-white">
-    <header class="py-6 sm:py-8">
+    <header class="py-5 sm:py-6">
       <Container>
         <nav class="relative flex items-center justify-between gap-6">
           <a href="/" class="text-xl font-semibold tracking-tight text-slate-900 no-underline hover:text-slate-700">
@@ -22,7 +22,7 @@ const { title, description, current } = Astro.props;
           </a>
           <div class="flex items-center gap-6 sm:gap-8">
             <Nav current={current} />
-            <Button href="/#contact" size="sm">
+            <Button href="/contact/" size="sm">
               Get a quote
             </Button>
           </div>

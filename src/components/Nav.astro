@@ -1,10 +1,11 @@
 ---
 interface Props {
-  current?: 'home' | 'blog';
+  current?: 'home' | 'blog' | 'contact';
 }
 const { current } = Astro.props;
 ---
 <nav class="flex items-center gap-6 sm:gap-8" aria-label="Main">
   <a href="/" class:list={["text-sm font-medium no-underline", current === 'home' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Home</a>
   <a href="/blog/" class:list={["text-sm font-medium no-underline", current === 'blog' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Blog</a>
+  <a href="/contact/" class:list={["text-sm font-medium no-underline", current === 'contact' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Contact</a>
 </nav>
