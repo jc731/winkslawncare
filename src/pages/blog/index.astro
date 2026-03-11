@@ -1,9 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../../components/PageLayout.astro';
-import PageSection from '../../components/PageSection.astro';
-import Button from '../../components/Button.astro';
-import Card from '../../components/Card.astro';
 
 const allPosts = (await getCollection('blog', ({ data }) => data.draft !== true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -25,26 +22,30 @@ function searchText(post: (typeof allPosts)[0]): string {
   description="Lawn care tips, how-tos, and seasonal advice for Central Illinois. Search and browse all articles."
   current="blog"
 >
-  <header class="border-b border-slate-200 bg-white" slot="header">
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+  <header class="border-b border-slate-200 bg-gradient-to-b from-emerald-50/80 to-white" slot="header">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <p class="text-sm font-medium uppercase tracking-wider text-emerald-700">Tips & how-tos</p>
+      <h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
         Blog
       </h1>
-      <p class="mt-2 text-lg text-slate-600">
-        Tips, how-tos, and seasonal lawn care for Central Illinois. Find what you need below.
+      <p class="mt-3 max-w-2xl text-lg text-slate-600">
+        Seasonal lawn care, mowing tips, and practical advice for Central Illinois. Find what you need below.
       </p>
 
       <label for="blog-search" class="sr-only">Search articles</label>
-      <div class="mt-6 sm:mt-8">
-        <input
-          id="blog-search"
-          type="search"
-          autocomplete="off"
-          placeholder="Search by topic, keyword, or tag…"
-          aria-describedby="blog-search-desc"
-          class="w-full max-w-xl rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3.5 sm:text-base"
-        />
-        <p id="blog-search-desc" class="mt-2 text-sm text-slate-500">
+      <div class="mt-5 sm:mt-6">
+        <div class="relative max-w-md">
+          <input
+            id="blog-search"
+            type="search"
+            autocomplete="off"
+            placeholder="Search by topic, keyword, or tag…"
+            aria-describedby="blog-search-desc"
+            class="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-3.5 pr-9 text-slate-900 text-sm shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3 sm:text-base"
+          />
+          <span class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm" aria-hidden="true">⌕</span>
+        </div>
+        <p id="blog-search-desc" class="mt-1.5 text-sm text-slate-500">
           Filters the list below as you type.
         </p>
       </div>
@@ -53,20 +54,24 @@ function searchText(post: (typeof allPosts)[0]): string {
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Featured post (above the fold on desktop; search is first) -->
-    <section class="py-8 sm:py-10" aria-labelledby="featured-heading">
-      <h2 id="featured-heading" class="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+    <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="text-sm font-medium uppercase tracking-wider text-emerald-700">
         Featured
       </h2>
-      <Card class="mt-4">
-        <a href={`/blog/${featuredPost.id}`} class="block no-underline group">
-          <span class="text-sm font-medium text-emerald-600">Featured article</span>
-          <h3 class="mt-1 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
+      <a
+        href={`/blog/${featuredPost.id}`}
+        class="group mt-4 flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
+      >
+        <span class="block w-full shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 sm:w-48 sm:min-h-[12rem]" aria-hidden="true" />
+        <div class="flex flex-1 flex-col p-5 sm:p-6">
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Featured article</span>
+          <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
             {featuredPost.data.title}
           </h3>
-          <p class="mt-2 text-slate-600 max-h-[3.75em] overflow-hidden sm:max-h-[4.5em]">
+          <p class="mt-2 text-slate-600 line-clamp-3 sm:line-clamp-4">
             {featuredPost.data.description}
           </p>
-          <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+          <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
             <time datetime={featuredPost.data.pubDate.toISOString()}>
               {featuredPost.data.pubDate.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -75,84 +80,86 @@ function searchText(post: (typeof allPosts)[0]): string {
               })}
             </time>
             {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
-              <span class="flex flex-wrap gap-1">
+              <span class="flex flex-wrap gap-1.5">
                 {featuredPost.data.tags.slice(0, 4).map((tag) => (
-                  <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-600">{tag}</span>
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
                 ))}
               </span>
             )}
           </div>
-          <span class="mt-3 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
+          <span class="mt-4 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
             Read article →
           </span>
-        </a>
-      </Card>
+        </div>
+      </a>
     </section>
 
     <!-- All articles: searchable list -->
-    <PageSection title="All articles" prominent>
-      <p class="mb-6 text-slate-600">
-        Browse by title, topic, or use the search above to filter.
-      </p>
+    <section class="py-12 sm:py-16" id="all-articles">
+      <div>
+        <h2 class="font-semibold tracking-tight text-slate-900 text-3xl sm:text-4xl">
+          All articles
+        </h2>
+        <p class="mt-2 text-slate-600 leading-relaxed sm:mt-5">
+          Browse by title, topic, or use the search above to filter.
+        </p>
 
-      <ul
-        id="blog-posts-list"
-        class="list-none space-y-4 p-0"
-        role="list"
-      >
-        {allPosts.map((post) => (
-          <li
-            data-post-id={post.id}
-            data-search={searchText(post)}
-            class="border-b border-slate-100 pb-4 last:border-0 last:pb-0"
+        <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50/50 p-4 sm:mt-8 sm:p-6">
+          <ul
+            id="blog-posts-list"
+            class="list-none space-y-0 p-0"
+            role="list"
           >
-            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-              <div class="min-w-0 flex-1">
+            {allPosts.map((post) => (
+              <li
+                data-post-id={post.id}
+                data-search={searchText(post)}
+                class="group border-b border-slate-200/80 last:border-0"
+              >
                 <a
                   href={`/blog/${post.id}`}
-                  class="font-medium text-emerald-600 no-underline hover:underline"
+                  class="flex flex-col gap-2 py-4 no-underline transition hover:bg-white/70 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-xl sm:px-4 sm:py-3 sm:-mx-1"
                 >
-                  {post.data.title}
-                </a>
-                <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
-                  <time datetime={post.data.pubDate.toISOString()}>
-                    {post.data.pubDate.toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  {post.data.tags && post.data.tags.length > 0 && (
-                    <span class="flex flex-wrap gap-1">
-                      {post.data.tags.slice(0, 3).map((tag) => (
-                        <span class="rounded bg-slate-100 px-1.5 py-0.5 text-slate-500">{tag}</span>
-                      ))}
+                  <div class="min-w-0 flex-1">
+                    <span class="font-medium text-slate-900 group-hover:text-emerald-700">
+                      {post.data.title}
                     </span>
-                  )}
-                </div>
-              </div>
-              <Button
-                href={`/blog/${post.id}`}
-                size="sm"
-                variant="ghost"
-                class="mt-1 shrink-0 sm:mt-0"
-              >
-                Read post
-              </Button>
-            </div>
-          </li>
-        ))}
-      </ul>
+                    <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+                      <time datetime={post.data.pubDate.toISOString()}>
+                        {post.data.pubDate.toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      {post.data.tags && post.data.tags.length > 0 && (
+                        <span class="flex flex-wrap gap-1.5">
+                          {post.data.tags.slice(0, 3).map((tag) => (
+                            <span class="rounded-full bg-white px-2 py-0.5 text-xs text-slate-600 shadow-sm">{tag}</span>
+                          ))}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <span class="shrink-0 text-sm font-medium text-emerald-600 group-hover:underline sm:mt-0">
+                    Read post →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-      <p
-        id="blog-no-results"
-        class="hidden mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-6 text-center text-slate-600"
-        role="status"
-        aria-live="polite"
-      >
-        No articles match your search. Try different keywords or clear the search box.
-      </p>
-    </PageSection>
+          <p
+            id="blog-no-results"
+            class="hidden mt-6 rounded-xl border border-slate-200 bg-white px-4 py-6 text-center text-slate-600"
+            role="status"
+            aria-live="polite"
+          >
+            No articles match your search. Try different keywords or clear the search box.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script define:vars={{ hasPosts: allPosts.length > 0 }}>
