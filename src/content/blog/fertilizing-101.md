@@ -38,7 +38,7 @@ For a full seasonal view, see our [seasonal lawn care calendar](/blog/seasonal-l
 
 ## Organic and eco-friendly options
 
-If you prefer to minimize synthetic fertilizers, see [eco-friendly lawn care](/blog/eco-friendly-lawn-care) for ideas like compost, organic products, and soil health. You can still feed the lawn effectively with a more natural approach.
+If you prefer to minimize synthetic fertilizers, see [eco-friendly lawn care](/blog/eco-friendly-lawn-care) for ideas like compost, organic products, and soil health—you can still feed the lawn effectively with a more natural approach.
 
 ---
 

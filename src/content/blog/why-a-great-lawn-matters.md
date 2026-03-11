@@ -1,6 +1,6 @@
 ---
 title: Why a Great Lawn Matters — Curb Appeal, Value, and Pride
-description: A well-maintained lawn boosts your home's curb appeal, supports property value, and gives you a space to be proud of. Here's why it's worth the effort.
+description: A well-maintained lawn boosts curb appeal and property value. Why a great lawn matters for your home in Champaign and Central Illinois.
 pubDate: 2025-03-10
 tags: ["curb appeal", "lawn care", "home value", "Central Illinois"]
 featured: true

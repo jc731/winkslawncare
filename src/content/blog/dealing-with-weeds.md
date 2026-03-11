@@ -22,7 +22,7 @@ Improving [mowing height and frequency](/blog/how-to-mow-like-a-pro), [watering]
 
 **Crabgrass and other annual grasses:** They grow from seed each year. **Prevention** matters most: thick turf, proper mowing height, and sometimes a pre-emergent in spring (use according to label and only if you’re comfortable with the product).
 
-**Other grassy weeds** (e.g., nutsedge, tall fescue clumps): Identification matters—some need different treatment. Your local extension or a reliable app can help with ID.
+**Other grassy weeds** (e.g., nutsedge, tall fescue clumps): Identification matters—some need different treatment. [University of Illinois Extension](https://extension.illinois.edu/) or a reliable app can help with ID.
 
 ## Options: cultural, mechanical, chemical
 

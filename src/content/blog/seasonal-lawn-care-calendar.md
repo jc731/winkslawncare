@@ -1,6 +1,6 @@
 ---
 title: Seasonal Lawn Care Calendar — Central Illinois
-description: A year-round lawn care calendar for Champaign and surrounding areas. Know when to mow, water, fertilize, and prep for each season.
+description: Year-round lawn care calendar for Champaign and Central Illinois. When to mow, water, fertilize, and prep each season.
 pubDate: 2025-03-15
 tags: ["seasonal", "lawn care", "Central Illinois", "calendar"]
 ---

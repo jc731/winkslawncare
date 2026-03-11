@@ -36,7 +36,7 @@ A **dull blade** tears grass, and the tips turn brown. **Scalping** (cutting too
 
 ## Disease and other causes
 
-Fungal disease can show up as rings, patches, or irregular brown areas. **Identification** helps—your local extension or a lawn pro can often ID from a photo or sample. Many diseases are encouraged by too much moisture (watering at night, heavy thatch), so improving [watering](/blog/watering-your-lawn) and mowing habits can reduce future problems.
+Fungal disease can show up as rings, patches, or irregular brown areas. **Identification** helps—[University of Illinois Extension](https://extension.illinois.edu/) or a lawn pro can often ID from a photo or sample. Many diseases are encouraged by too much moisture (watering at night, heavy thatch), so improving [watering](/blog/watering-your-lawn) and mowing habits can reduce future problems.
 
 ---
 
