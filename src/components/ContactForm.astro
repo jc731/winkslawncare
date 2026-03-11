@@ -1,0 +1,51 @@
+---
+import FormField from './FormField.astro';
+import Button from './Button.astro';
+---
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="space-y-5"
+>
+  <p class="hidden" aria-hidden="true">
+    <label>
+      Don't fill this out if you're human: <input name="bot-field" type="text" tabindex="-1" autocomplete="off" />
+    </label>
+  </p>
+  <input type="hidden" name="form-name" value="contact" />
+  <FormField id="contact-name" label="Name" required>
+    <input
+      type="text"
+      id="contact-name"
+      name="name"
+      required
+      autocomplete="name"
+      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+    />
+  </FormField>
+  <FormField id="contact-phone" label="Phone number">
+    <input
+      type="tel"
+      id="contact-phone"
+      name="phone"
+      autocomplete="tel"
+      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+    />
+  </FormField>
+  <FormField id="contact-comment" label="Comment" required>
+    <textarea
+      id="contact-comment"
+      name="comment"
+      required
+      rows="4"
+      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+    />
+  </FormField>
+  <div class="pt-1">
+    <Button type="submit" variant="primary">
+      Submit
+    </Button>
+  </div>
+</form>

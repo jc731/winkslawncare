@@ -1,0 +1,18 @@
+---
+import PageLayout from '../components/PageLayout.astro';
+import PageSection from '../components/PageSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Container from '../components/Container.astro';
+---
+<PageLayout
+  title="Contact us — Wink's Lawn Care"
+  description="Get a free quote. Contact Wink's Lawn Care by form, phone, or text."
+  current="contact"
+>
+  <PageSection title="Contact us" id="contact" prominent>
+    <p class="mb-6">Call or text for a free quote: <a href="tel:+12174876264" class="font-semibold text-emerald-600 no-underline hover:underline">(217) 487-6264</a>. Or send us a message below.</p>
+    <div class="max-w-xl">
+      <ContactForm />
+    </div>
+  </PageSection>
+</PageLayout>
