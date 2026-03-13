@@ -1,0 +1,17 @@
+---
+description: Org-control and project context; preferences path and when to use org skills. Generated for {{PROJECT_NAME}}.
+alwaysApply: true
+---
+
+# Org-control / Project context
+
+This project (**{{PROJECT_NAME}}**) uses org-control (org skills only; no MCP required). Org preferences (strictness, ask_before) are used by org skills; use **org-preferences** to read or update them.
+
+**Stack / context:** {{STACK_SUMMARY}}
+
+**Conventions:** {{CONVENTIONS_SUMMARY}}
+
+- When planning or enforcing policy, use **org-orchestrator** and **org-preferences**.
+- When the user's intent is unclear, use **org-receptionist** to route.
+- For review, docs, QA, risk, content, SEO, use the corresponding org skill (org-senior-dev, org-docs-team, org-qa-team, org-feedback-loop, org-architecture-steward, org-risk-assessor, org-content-strategist, org-content-creator, org-tailwind-reviewer, org-seo-reviewer, component-philosophy).
+- For setting up another project's rules in this workspace, use **org-project-setup**.

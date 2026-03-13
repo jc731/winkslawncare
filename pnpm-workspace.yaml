@@ -1,0 +1,12 @@
+allowBuilds:
+  '@parcel/watcher': true
+  a: true
+  b: true
+  e: true
+  esbuild: true
+  netlify-cli: true
+  p: true
+  s: true
+  sharp: true
+  u: true
+  unix-dgram: true
