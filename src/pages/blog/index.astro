@@ -6,7 +6,7 @@ const allPosts = (await getCollection('blog', ({ data }) => data.draft !== true)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const featuredPost =
-  allPosts.find((p) => p.data.featured === true) ?? allPosts[0];
+  allPosts.find((p) => p.data.featured === true) ?? allPosts[0] ?? null;
 
 /** Searchable list: all posts with safe search text for client-side filter */
 function searchText(post: (typeof allPosts)[0]): string {
@@ -54,45 +54,47 @@ function searchText(post: (typeof allPosts)[0]): string {
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Featured post (above the fold on desktop; search is first) -->
-    <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
-      <h2 id="featured-heading" class="text-sm font-medium uppercase tracking-wider text-emerald-700">
-        Featured
-      </h2>
-      <a
-        href={`/blog/${featuredPost.id}`}
-        class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
-      >
-        <span class="block w-full shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 sm:w-48 sm:min-h-[12rem]" aria-hidden="true" />
-        <div class="flex flex-1 flex-col p-5 sm:p-6">
-          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Featured article</span>
-          <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
-            {featuredPost.data.title}
-          </h3>
-          <p class="mt-2 text-slate-600 line-clamp-3 sm:line-clamp-4">
-            {featuredPost.data.description}
-          </p>
-          <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
-            <time datetime={featuredPost.data.pubDate.toISOString()}>
-              {featuredPost.data.pubDate.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
-            {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
-              <span class="flex flex-wrap gap-1.5">
-                {featuredPost.data.tags.slice(0, 4).map((tag) => (
-                  <span class="rounded-sm bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
-                ))}
-              </span>
-            )}
+    {featuredPost && (
+      <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
+        <h2 id="featured-heading" class="text-sm font-medium uppercase tracking-wider text-emerald-700">
+          Featured
+        </h2>
+        <a
+          href={`/blog/${featuredPost.id}`}
+          class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
+        >
+          <span class="block w-full shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 sm:w-48 sm:min-h-[12rem]" aria-hidden="true" />
+          <div class="flex flex-1 flex-col p-5 sm:p-6">
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Featured article</span>
+            <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
+              {featuredPost.data.title}
+            </h3>
+            <p class="mt-2 text-slate-600 line-clamp-3 sm:line-clamp-4">
+              {featuredPost.data.description}
+            </p>
+            <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+              <time datetime={featuredPost.data.pubDate.toISOString()}>
+                {featuredPost.data.pubDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
+                <span class="flex flex-wrap gap-1.5">
+                  {featuredPost.data.tags.slice(0, 4).map((tag) => (
+                    <span class="rounded-sm bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
+                  ))}
+                </span>
+              )}
+            </div>
+            <span class="mt-4 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
+              Read article →
+            </span>
           </div>
-          <span class="mt-4 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
-            Read article →
-          </span>
-        </div>
-      </a>
-    </section>
+        </a>
+      </section>
+    )}
 
     <!-- All articles: searchable list -->
     <section class="py-12 sm:py-16" id="all-articles">
