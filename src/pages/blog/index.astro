@@ -1,21 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import PageLayout from '../../components/PageLayout.astro';
-import defaultFeaturedImage from '../../images/winks logo.png';
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import defaultFeaturedImage from "../../images/winks_logo.png";
 
-const allPosts = (await getCollection('blog', ({ data }) => data.draft !== true))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allPosts = (
+  await getCollection("blog", ({ data }) => data.draft !== true)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const featuredPost =
   allPosts.find((p) => p.data.featured === true) ?? allPosts[0] ?? null;
 
 /** Searchable list: all posts with safe search text for client-side filter */
 function searchText(post: (typeof allPosts)[0]): string {
-  const title = post.data.title ?? '';
-  const desc = post.data.description ?? '';
-  const tags = (post.data.tags ?? []).join(' ');
-  return [title, desc, tags].join(' ').toLowerCase();
+  const title = post.data.title ?? "";
+  const desc = post.data.description ?? "";
+  const tags = (post.data.tags ?? []).join(" ");
+  return [title, desc, tags].join(" ").toLowerCase();
 }
 ---
 
@@ -25,14 +26,22 @@ function searchText(post: (typeof allPosts)[0]): string {
   current="blog"
   mainClass="bg-slate-50/80"
 >
-  <header class="border-b border-slate-200 bg-gradient-to-b from-emerald-50/80 to-slate-50/80" slot="header">
+  <header
+    class="border-b border-slate-200 bg-gradient-to-b from-emerald-50/80 to-slate-50/80"
+    slot="header"
+  >
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-      <p class="text-sm font-medium uppercase tracking-wider text-emerald-700">Tips & how-tos</p>
-      <h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+      <p class="text-sm font-medium uppercase tracking-wider text-emerald-700">
+        Tips & how-tos
+      </p>
+      <h1
+        class="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+      >
         Blog
       </h1>
       <p class="mt-3 max-w-2xl text-lg text-slate-600">
-        Seasonal lawn care, mowing tips, and practical advice for Central Illinois. Find what you need below.
+        Seasonal lawn care, mowing tips, and practical advice for Central
+        Illinois. Find what you need below.
       </p>
 
       <label for="blog-search" class="sr-only">Search articles</label>
@@ -46,7 +55,10 @@ function searchText(post: (typeof allPosts)[0]): string {
             aria-describedby="blog-search-desc"
             class="w-full rounded-sm border border-slate-300 bg-white py-2.5 pl-3.5 pr-9 text-slate-900 text-sm shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3 sm:text-base"
           />
-          <span class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm" aria-hidden="true">⌕</span>
+          <span
+            class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"
+            aria-hidden="true">⌕</span
+          >
         </div>
         <p id="blog-search-desc" class="mt-1.5 text-sm text-slate-500">
           Filters the list below as you type.
@@ -56,145 +68,169 @@ function searchText(post: (typeof allPosts)[0]): string {
   </header>
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-    <div class="rounded-lg bg-white/95 shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_4px_24px_-4px_rgba(16,185,129,0.12)] ring-1 ring-slate-200/60 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-    <!-- Featured post (above the fold on desktop; search is first) -->
-    {featuredPost && (
-      <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
-        <h2 id="featured-heading" class="text-sm font-medium uppercase tracking-wider text-emerald-700">
-          Featured
-        </h2>
-        <a
-          href={`/blog/${featuredPost.id}`}
-          class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
-        >
-          <span class="block w-full shrink-0 overflow-hidden sm:w-48 sm:min-h-[12rem] md:w-[14.4rem] md:min-h-[14.4rem]" aria-hidden="true">
-            <Image
-              src={defaultFeaturedImage}
-              alt=""
-              width={192}
-              height={192}
-              class="h-full w-full object-cover"
-            />
-          </span>
-          <div class="flex flex-1 flex-col p-5 sm:p-6">
-            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Featured article</span>
-            <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
-              {featuredPost.data.title}
-            </h3>
-            <p class="mt-2 text-slate-600 line-clamp-3 sm:line-clamp-4">
-              {featuredPost.data.description}
-            </p>
-            <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
-              <time datetime={featuredPost.data.pubDate.toISOString()}>
-                {featuredPost.data.pubDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-              {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
-                <span class="flex flex-wrap gap-1.5">
-                  {featuredPost.data.tags.slice(0, 4).map((tag) => (
-                    <span class="rounded-sm bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
-                  ))}
-                </span>
-              )}
-            </div>
-            <span class="mt-4 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
-              Read article →
-            </span>
-          </div>
-        </a>
-      </section>
-    )}
-
-    <!-- All articles: searchable list -->
-    <section class="py-12 sm:py-16" id="all-articles">
-      <div>
-        <h2 class="font-semibold tracking-tight text-slate-900 text-3xl sm:text-4xl">
-          All articles
-        </h2>
-        <p class="mt-2 text-slate-600 leading-relaxed sm:mt-5">
-          Browse by title, topic, or use the search above to filter.
-        </p>
-
-        <div class="mt-6 rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:mt-8 sm:p-6">
-          <ul
-            id="blog-posts-list"
-            class="list-none space-y-0 p-0"
-            role="list"
-          >
-            {allPosts.map((post) => (
-              <li
-                data-post-id={post.id}
-                data-search={searchText(post)}
-                class="group border-b border-slate-200/80 last:border-0"
+    <div
+      class="rounded-lg bg-white/95 shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_4px_24px_-4px_rgba(16,185,129,0.12)] ring-1 ring-slate-200/60 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10"
+    >
+      <!-- Featured post (above the fold on desktop; search is first) -->
+      {
+        featuredPost && (
+          <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
+            <h2
+              id="featured-heading"
+              class="text-sm font-medium uppercase tracking-wider text-emerald-700"
+            >
+              Featured
+            </h2>
+            <a
+              href={`/blog/${featuredPost.id}`}
+              class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
+            >
+              <span
+                class="block w-full shrink-0 overflow-hidden sm:w-48 sm:min-h-[12rem] md:w-[14.4rem] md:min-h-[14.4rem]"
+                aria-hidden="true"
               >
-                <a
-                  href={`/blog/${post.id}`}
-                  class="flex flex-col gap-2 py-4 no-underline transition hover:bg-white/70 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-sm sm:px-4 sm:py-3 sm:-mx-1"
-                >
-                  <div class="min-w-0 flex-1">
-                    <span class="font-medium text-slate-900 group-hover:text-emerald-700">
-                      {post.data.title}
-                    </span>
-                    <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
-                      <time datetime={post.data.pubDate.toISOString()}>
-                        {post.data.pubDate.toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                        })}
-                      </time>
-                      {post.data.tags && post.data.tags.length > 0 && (
-                        <span class="flex flex-wrap gap-1.5">
-                          {post.data.tags.slice(0, 3).map((tag) => (
-                            <span class="rounded-sm bg-white px-2 py-0.5 text-xs text-slate-600 shadow-sm">{tag}</span>
-                          ))}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <span class="shrink-0 text-sm font-medium text-emerald-600 group-hover:underline sm:mt-0">
-                    Read post →
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+                <Image
+                  src={defaultFeaturedImage}
+                  alt=""
+                  width={192}
+                  height={192}
+                  class="h-full w-full object-cover"
+                />
+              </span>
+              <div class="flex flex-1 flex-col p-5 sm:p-6">
+                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">
+                  Featured article
+                </span>
+                <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
+                  {featuredPost.data.title}
+                </h3>
+                <p class="mt-2 text-slate-600 line-clamp-3 sm:line-clamp-4">
+                  {featuredPost.data.description}
+                </p>
+                <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+                  <time datetime={featuredPost.data.pubDate.toISOString()}>
+                    {featuredPost.data.pubDate.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  {featuredPost.data.tags &&
+                    featuredPost.data.tags.length > 0 && (
+                      <span class="flex flex-wrap gap-1.5">
+                        {featuredPost.data.tags.slice(0, 4).map((tag) => (
+                          <span class="rounded-sm bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">
+                            {tag}
+                          </span>
+                        ))}
+                      </span>
+                    )}
+                </div>
+                <span class="mt-4 inline-flex items-center font-medium text-emerald-600 group-hover:underline">
+                  Read article →
+                </span>
+              </div>
+            </a>
+          </section>
+        )
+      }
 
-          <p
-            id="blog-no-results"
-            class="hidden mt-6 rounded-sm border border-slate-200 bg-white px-4 py-6 text-center text-slate-600"
-            role="status"
-            aria-live="polite"
+      <!-- All articles: searchable list -->
+      <section class="py-12 sm:py-16" id="all-articles">
+        <div>
+          <h2
+            class="font-semibold tracking-tight text-slate-900 text-3xl sm:text-4xl"
           >
-            No articles match your search. Try different keywords or clear the search box.
+            All articles
+          </h2>
+          <p class="mt-2 text-slate-600 leading-relaxed sm:mt-5">
+            Browse by title, topic, or use the search above to filter.
           </p>
+
+          <div
+            class="mt-6 rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:mt-8 sm:p-6"
+          >
+            <ul
+              id="blog-posts-list"
+              class="list-none space-y-0 p-0"
+              role="list"
+            >
+              {
+                allPosts.map((post) => (
+                  <li
+                    data-post-id={post.id}
+                    data-search={searchText(post)}
+                    class="group border-b border-slate-200/80 last:border-0"
+                  >
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="flex flex-col gap-2 py-4 no-underline transition hover:bg-white/70 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-sm sm:px-4 sm:py-3 sm:-mx-1"
+                    >
+                      <div class="min-w-0 flex-1">
+                        <span class="font-medium text-slate-900 group-hover:text-emerald-700">
+                          {post.data.title}
+                        </span>
+                        <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+                          <time datetime={post.data.pubDate.toISOString()}>
+                            {post.data.pubDate.toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
+                          </time>
+                          {post.data.tags && post.data.tags.length > 0 && (
+                            <span class="flex flex-wrap gap-1.5">
+                              {post.data.tags.slice(0, 3).map((tag) => (
+                                <span class="rounded-sm bg-white px-2 py-0.5 text-xs text-slate-600 shadow-sm">
+                                  {tag}
+                                </span>
+                              ))}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <span class="shrink-0 text-sm font-medium text-emerald-600 group-hover:underline sm:mt-0">
+                        Read post →
+                      </span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <p
+              id="blog-no-results"
+              class="hidden mt-6 rounded-sm border border-slate-200 bg-white px-4 py-6 text-center text-slate-600"
+              role="status"
+              aria-live="polite"
+            >
+              No articles match your search. Try different keywords or clear the
+              search box.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   </div>
 
   <script define:vars={{ hasPosts: allPosts.length > 0 }}>
     if (hasPosts) {
-      const searchInput = document.getElementById('blog-search');
-      const list = document.getElementById('blog-posts-list');
-      const noResults = document.getElementById('blog-no-results');
+      const searchInput = document.getElementById("blog-search");
+      const list = document.getElementById("blog-posts-list");
+      const noResults = document.getElementById("blog-no-results");
 
       if (searchInput && list) {
-        searchInput.addEventListener('input', () => {
+        searchInput.addEventListener("input", () => {
           const q = searchInput.value.trim().toLowerCase();
-          const items = list.querySelectorAll('[data-post-id]');
+          const items = list.querySelectorAll("[data-post-id]");
           let visible = 0;
           items.forEach((el) => {
-            const text = (el.getAttribute('data-search') || '');
+            const text = el.getAttribute("data-search") || "";
             const show = !q || text.includes(q);
-            el.classList.toggle('hidden', !show);
+            el.classList.toggle("hidden", !show);
             if (show) visible++;
           });
-          if (noResults) noResults.classList.toggle('hidden', visible > 0);
+          if (noResults) noResults.classList.toggle("hidden", visible > 0);
         });
       }
     }

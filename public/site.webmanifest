@@ -1,6 +1,7 @@
 {
   "name": "Wink's Lawn Care",
   "short_name": "Wink's Lawn Care",
+  "description": "Lawn care services in Central Illinois — Champaign area and surrounding.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
