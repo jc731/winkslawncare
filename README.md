@@ -33,22 +33,23 @@ pnpm preview
 ## Project layout
 
 ```
-├── public/           # Static files only (favicons, manifest). Avoid images here — they skip processing.
+├── public/           # Static files (favicons, manifest, sw.js, videos). Blog images for static URLs: public/blog/.
 ├── src/
-│   ├── assets/       # Images (Astro processes these). Use for blog and page images.
 │   ├── content.config.ts   # Content collection config (blog schema)
-│   ├── layouts/
+│   ├── images/        # Page and blog images (Astro processes when imported). See ASSETS.md.
+│   ├── layouts/       # Layout.astro = HTML shell, meta, OG; PageLayout = Nav + main + Footer.
 │   ├── pages/
 │   ├── components/
-│   └── content/      # Blog: src/content/blog/ (Markdown)
+│   └── content/       # Blog: src/content/blog/ (Markdown)
 └── package.json
 ```
 
 ## Component structure
 
+- **Layout/shell:** `Layout.astro` (HTML, meta, OG image); `PageLayout.astro` (wraps Nav, Container, main slot, Footer); `Nav.astro`, `Footer.astro`.
 - **Primitives:** `Container`, `Button`, `Badge`, `FormField` — small, focused, reusable.
 - **Composites:** `Card`, `PageSection`, `ContactForm` — combinations of primitives for common patterns.
-- **Sections:** Page-specific blocks (e.g. hero, CTA band) live in pages; extract to a component when the same pattern repeats or clarity improves.
+- **Sections:** `LearnWhatWeKnow.astro` (blog links block), `ServiceAreaMap.astro` (map). Other page-specific blocks (hero, CTA) live in pages until reused.
 
 ## See also
 

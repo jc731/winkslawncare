@@ -23,5 +23,5 @@ Use the org-content-strategist skill. This project is Wink's Lawn Care (Astro si
 ## 13 — Documentation audit
 
 ```
-Use the org-docs-team skill in audit mode. This is Wink's Lawn Care (Astro static site, Netlify). Do a documentation audit: check README and any docs/ for accuracy, missing setup steps, and alignment with the codebase (e.g. project layout, build/deploy, where content and assets live). Report what's in good shape and what should be updated or added. Scope: onboarding and maintainer docs, not blog content strategy.
+Use the org-docs-team skill in audit mode. This is Wink's Lawn Care (Astro static site, Netlify). Do a documentation audit: check README and any docs/ for accuracy, missing setup steps, and alignment with the codebase (e.g. project layout, build/deploy, where content and images live — src/images/, public/blog/, Layout vs PageLayout, Nav/Footer). Report what's in good shape and what should be updated or added. Scope: onboarding and maintainer docs, not blog content strategy.
 ```

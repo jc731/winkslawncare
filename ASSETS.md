@@ -1,6 +1,6 @@
 # Image assets reference
 
-Details for images in `src/images/`. Use this doc for sizing, aspect ratios, alt text, and placement when building or editing pages.
+Details for images in `src/images/`. Use this doc for sizing, aspect ratios, alt text, and placement when building or editing pages. For **blog post images** (content collection), see [docs/blog-images-brief.md](docs/blog-images-brief.md); blog markdown can reference images in `public/blog/` or use imports from `src/images/`.
 
 ---
 
@@ -114,6 +114,14 @@ Details for images in `src/images/`. Use this doc for sizing, aspect ratios, alt
 | Service highlights (landscape) | `mower_above.jpg`, `mower_close.jpg` |
 | Background / texture | `lawn_closeup.jpg` |
 | Portrait / mobile / sidebar | `weed_eater_edging.jpg` |
+
+---
+
+## Brand / shared
+
+| File | Use |
+|------|-----|
+| `winks_logo.png` | Default OG/social image (used in `Layout.astro`). |
 
 ---
 
