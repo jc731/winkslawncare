@@ -8,6 +8,7 @@ import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ServiceAreaMap from "../components/ServiceAreaMap.astro";
 import heroPosterSource from "../images/lawn_care_low.jpg";
 import heroVideo from "../images/Lawn_Care_Hero_Background_Video.mp4";
 import mowerImage from "../images/mower_close.jpg";
@@ -374,7 +375,7 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
       </PageSection>
     </section>
 
-    <!-- Areas we serve -->
+    <!-- Areas we serve (hidden for now; revisit later)
     <PageSection title="Areas we serve" prominent>
       <p>
         Central Illinois, primarily around Rantoul and the Champaign area. We
@@ -383,7 +384,11 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
         >, <strong>Mahomet</strong>, <strong>St. Joseph</strong>, and
         surrounding towns.
       </p>
+      <div class="mt-6">
+        <ServiceAreaMap />
+      </div>
     </PageSection>
+    -->
 
     <!-- Blog: learn what you can do -->
     <PageSection title="Learn what you can do" prominent>

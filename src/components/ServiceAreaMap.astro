@@ -1,0 +1,132 @@
+---
+/**
+ * Service area map: 20-mile radius centered near Dewey/Fisher (west of Rantoul). Rantoul remains a labeled town.
+ * URL param `highlight=<keyword>` changes styling and adds a marker for that town.
+ * Keywords: rantoul, champaign, paxton, mahomet, st-joseph (or st_joseph)
+ */
+---
+
+<div class="service-area-map-wrapper rounded-sm border border-slate-200 overflow-hidden bg-slate-50">
+  <div
+    id="service-area-map"
+    class="h-[320px] w-full min-h-[280px]"
+    aria-label="Map showing service area: about 20 miles from Dewey, Illinois (Rantoul, Champaign, and surrounding towns)"
+  ></div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script is:inline>
+  (function () {
+    var RANTOUL = { lat: 40.3084, lng: -88.1559 };
+    var SERVICE_AREA_CENTER = { lat: 40.31, lng: -88.29 };
+    var RADIUS_MILES = 20;
+    var RADIUS_M = RADIUS_MILES * 1609.34;
+
+    var TOWNS = {
+      rantoul:    { lat: 40.3084,  lng: -88.1559, label: 'Rantoul' },
+      champaign:  { lat: 40.1164,  lng: -88.2434, label: 'Champaign' },
+      paxton:     { lat: 40.4603,  lng: -88.0959, label: 'Paxton' },
+      mahomet:    { lat: 40.1951,  lng: -88.4040, label: 'Mahomet' },
+      'st-joseph': { lat: 40.1117, lng: -88.0417, label: 'St. Joseph' },
+      'st_joseph': { lat: 40.1117, lng: -88.0417, label: 'St. Joseph' },
+    };
+    var TOWN_KEYS = ['rantoul', 'champaign', 'paxton', 'mahomet', 'st-joseph'];
+
+    function getHighlightKeyword() {
+      if (typeof window === 'undefined') return null;
+      var params = new URLSearchParams(window.location.search);
+      var raw = params.get('highlight') || params.get('area');
+      if (!raw) return null;
+      return raw.toLowerCase().trim().replace(/\s+/g, '-');
+    }
+
+    function initMap() {
+      if (typeof L === 'undefined') return;
+      var el = document.getElementById('service-area-map');
+      if (!el) return;
+
+      var highlightKey = getHighlightKeyword();
+      var highlight = highlightKey && TOWNS[highlightKey] ? TOWNS[highlightKey] : null;
+
+      var map = L.map('service-area-map', {
+        scrollWheelZoom: true,
+        zoomControl: true,
+      }).setView([SERVICE_AREA_CENTER.lat, SERVICE_AREA_CENTER.lng], 9);
+
+      L.control.zoom({ position: 'topright' }).addTo(map);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19,
+      }).addTo(map);
+
+      var defaultStyle = {
+        color: '#059669',
+        fillColor: '#10b981',
+        fillOpacity: 0.15,
+        weight: 2,
+      };
+      var highlightedStyle = {
+        color: '#047857',
+        fillColor: '#059669',
+        fillOpacity: 0.25,
+        weight: 3,
+      };
+
+      var circleStyle = highlight ? highlightedStyle : defaultStyle;
+      L.circle([SERVICE_AREA_CENTER.lat, SERVICE_AREA_CENTER.lng], {
+        radius: RADIUS_M,
+        color: circleStyle.color,
+        fillColor: circleStyle.fillColor,
+        fillOpacity: circleStyle.fillOpacity,
+        weight: circleStyle.weight,
+      }).addTo(map);
+
+      TOWN_KEYS.forEach(function (key) {
+        var town = TOWNS[key];
+        var isHighlight = highlight && town.lat === highlight.lat && town.lng === highlight.lng;
+        var html = isHighlight
+          ? '<span class="bg-emerald-700 text-white text-sm font-bold px-3 py-1.5 rounded shadow-md ring-2 ring-white whitespace-nowrap">' + town.label + '</span>'
+          : '<span class="bg-emerald-600 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm whitespace-nowrap">' + town.label + '</span>';
+        var iconSize = isHighlight ? [120, 36] : [80, 28];
+        var iconAnchor = isHighlight ? [60, 18] : [40, 14];
+        L.marker([town.lat, town.lng], {
+          icon: L.divIcon({
+            className: 'service-area-marker' + (isHighlight ? ' service-area-marker--highlight' : ''),
+            html: html,
+            iconSize: iconSize,
+            iconAnchor: iconAnchor,
+          }),
+        }).addTo(map);
+        if (isHighlight) {
+          map.panTo([town.lat, town.lng], { animate: true, duration: 0.3 });
+          map.setZoom(10);
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMap);
+    } else {
+      initMap();
+    }
+  })();
+</script>
+
+<style>
+  .service-area-marker span {
+    display: inline-block;
+  }
+  .service-area-marker--highlight span {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .leaflet-container {
+    font-family: inherit;
+  }
+</style>
