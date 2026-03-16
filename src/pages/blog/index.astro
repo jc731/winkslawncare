@@ -41,7 +41,7 @@ function searchText(post: (typeof allPosts)[0]): string {
             autocomplete="off"
             placeholder="Search by topic, keyword, or tag…"
             aria-describedby="blog-search-desc"
-            class="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-3.5 pr-9 text-slate-900 text-sm shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3 sm:text-base"
+            class="w-full rounded-sm border border-slate-300 bg-white py-2.5 pl-3.5 pr-9 text-slate-900 text-sm shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 sm:py-3 sm:text-base"
           />
           <span class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm" aria-hidden="true">⌕</span>
         </div>
@@ -60,7 +60,7 @@ function searchText(post: (typeof allPosts)[0]): string {
       </h2>
       <a
         href={`/blog/${featuredPost.id}`}
-        class="group mt-4 flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
+        class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
       >
         <span class="block w-full shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 sm:w-48 sm:min-h-[12rem]" aria-hidden="true" />
         <div class="flex flex-1 flex-col p-5 sm:p-6">
@@ -82,7 +82,7 @@ function searchText(post: (typeof allPosts)[0]): string {
             {featuredPost.data.tags && featuredPost.data.tags.length > 0 && (
               <span class="flex flex-wrap gap-1.5">
                 {featuredPost.data.tags.slice(0, 4).map((tag) => (
-                  <span class="rounded-full bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
+                  <span class="rounded-sm bg-emerald-50 px-2.5 py-0.5 text-sm text-emerald-700">{tag}</span>
                 ))}
               </span>
             )}
@@ -104,7 +104,7 @@ function searchText(post: (typeof allPosts)[0]): string {
           Browse by title, topic, or use the search above to filter.
         </p>
 
-        <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50/50 p-4 sm:mt-8 sm:p-6">
+        <div class="mt-6 rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:mt-8 sm:p-6">
           <ul
             id="blog-posts-list"
             class="list-none space-y-0 p-0"
@@ -118,7 +118,7 @@ function searchText(post: (typeof allPosts)[0]): string {
               >
                 <a
                   href={`/blog/${post.id}`}
-                  class="flex flex-col gap-2 py-4 no-underline transition hover:bg-white/70 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-xl sm:px-4 sm:py-3 sm:-mx-1"
+                  class="flex flex-col gap-2 py-4 no-underline transition hover:bg-white/70 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-sm sm:px-4 sm:py-3 sm:-mx-1"
                 >
                   <div class="min-w-0 flex-1">
                     <span class="font-medium text-slate-900 group-hover:text-emerald-700">
@@ -135,7 +135,7 @@ function searchText(post: (typeof allPosts)[0]): string {
                       {post.data.tags && post.data.tags.length > 0 && (
                         <span class="flex flex-wrap gap-1.5">
                           {post.data.tags.slice(0, 3).map((tag) => (
-                            <span class="rounded-full bg-white px-2 py-0.5 text-xs text-slate-600 shadow-sm">{tag}</span>
+                            <span class="rounded-sm bg-white px-2 py-0.5 text-xs text-slate-600 shadow-sm">{tag}</span>
                           ))}
                         </span>
                       )}
@@ -151,7 +151,7 @@ function searchText(post: (typeof allPosts)[0]): string {
 
           <p
             id="blog-no-results"
-            class="hidden mt-6 rounded-xl border border-slate-200 bg-white px-4 py-6 text-center text-slate-600"
+            class="hidden mt-6 rounded-sm border border-slate-200 bg-white px-4 py-6 text-center text-slate-600"
             role="status"
             aria-live="polite"
           >

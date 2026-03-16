@@ -78,9 +78,9 @@ const featuredPosts = homepageSlugs
       </div>
     </section>
 
-    <!-- Services: green-tinted gradient for differentiation -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-white via-white to-emerald-50/70 bg-[radial-gradient(ellipse_80%_60%_at_70%_20%,rgba(167,243,208,0.35),transparent_50%)]">
-      <PageSection title="Services" prominent>
+    <!-- Services -->
+    <section>
+      <PageSection title="Services" prominent accentHeading>
       <p>We offer <strong>mowing</strong>, <strong>edging</strong>, and <strong>trimming</strong> to keep your lawn looking sharp. Regular maintenance or one-time cleanups — we can tailor a schedule to your property. Rates: contact us for a quote.</p>
       <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Card>
@@ -92,7 +92,7 @@ const featuredPosts = homepageSlugs
           height={374}
           widths={[340, 560]}
           sizes="(max-width: 640px) 100vw, 340px"
-          class="mb-3 h-56 w-full rounded-xl object-cover"
+          class="mb-3 h-56 w-full rounded-sm object-cover"
         />
           <h3 class="text-lg font-semibold text-slate-900">Mowing</h3>
           <p class="mt-1 text-sm text-slate-600">
@@ -108,7 +108,7 @@ const featuredPosts = homepageSlugs
           height={374}
           widths={[340, 560]}
           sizes="(max-width: 640px) 100vw, 340px"
-          class="mb-3 h-56 w-full rounded-xl object-cover"
+          class="mb-3 h-56 w-full rounded-sm object-cover"
         />
           <h3 class="text-lg font-semibold text-slate-900">Edging & trimming</h3>
           <p class="mt-1 text-sm text-slate-600">
@@ -119,9 +119,9 @@ const featuredPosts = homepageSlugs
       </PageSection>
     </section>
 
-    <!-- Our work: different tint so sections feel unique -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-emerald-50/20 to-slate-50 bg-[radial-gradient(ellipse_60%_80%_at_30%_80%,rgba(110,231,183,0.25),transparent_45%)]">
-      <PageSection title="Our work" prominent>
+    <!-- Our work -->
+    <section class="bg-slate-50">
+      <PageSection title="Our work" prominent accentHeading>
         <p>Quality mowing and clean edges — we take pride in the details.</p>
         <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
           <Card>
@@ -133,7 +133,7 @@ const featuredPosts = homepageSlugs
             height={374}
             widths={[340, 560]}
             sizes="(max-width: 640px) 100vw, 340px"
-            class="mb-3 h-56 w-full rounded-xl object-cover"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
           />
             <h3 class="text-lg font-semibold text-slate-900">Thick, healthy turf</h3>
             <p class="mt-1 text-sm text-slate-600">
@@ -149,7 +149,7 @@ const featuredPosts = homepageSlugs
             height={374}
             widths={[340, 560]}
             sizes="(max-width: 640px) 100vw, 340px"
-            class="mb-3 h-56 w-full rounded-xl object-cover"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
           />
             <h3 class="text-lg font-semibold text-slate-900">Clean passes & patterns</h3>
             <p class="mt-1 text-sm text-slate-600">
@@ -171,7 +171,7 @@ const featuredPosts = homepageSlugs
       <ul class="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {featuredPosts.map((post) => (
           <li>
-            <a href={`/blog/${post.id}`} class="group block rounded-xl border border-slate-200 bg-white p-4 no-underline shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:p-5">
+            <a href={`/blog/${post.id}`} class="group block rounded-sm border border-slate-200 bg-white p-4 no-underline shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:p-5">
               <h3 class="font-semibold text-slate-900 group-hover:text-emerald-700">
                 {post.data.title}
               </h3>
@@ -202,7 +202,7 @@ const featuredPosts = homepageSlugs
           </p>
           <a
             href="/#contact"
-            class="mt-6 inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-emerald-600 no-underline shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            class="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-base font-semibold text-emerald-600 no-underline shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Get a free quote
           </a>
