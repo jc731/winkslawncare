@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture, getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import PageLayout from '../components/PageLayout.astro';
 import PageSection from '../components/PageSection.astro';
@@ -8,11 +8,18 @@ import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import Badge from '../components/Badge.astro';
 import ContactForm from '../components/ContactForm.astro';
-import heroImage from '../images/lawn_care_low.jpg';
+import heroPosterSource from '../images/lawn_care_low.jpg';
+import heroVideo from '../images/Lawn_Care_Hero_Background_Video.mp4';
 import mowerImage from '../images/mower_close.jpg';
 import edgingImage from '../images/weed_eater_edging.jpg';
 import lawnCloseup from '../images/lawn_closeup.jpg';
 import mowerAbove from '../images/mower_above.jpg';
+
+const heroPoster = await getImage({
+  src: heroPosterSource,
+  width: 824,
+  format: 'webp',
+});
 
 const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
 const homepageSlugs = ['why-a-great-lawn-matters', 'how-to-mow-like-a-pro', 'seasonal-lawn-care-calendar'];
@@ -26,13 +33,27 @@ const featuredPosts = homepageSlugs
     <!-- Hero: full-bleed image with overlay and headline -->
     <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none">
       <div class="relative aspect-[16/9] sm:aspect-[21/9] xl:aspect-[24/9] w-full overflow-hidden">
-        <Image
-          src={heroImage}
-          alt=""
-          width={1400}
-          height={630}
-          class="absolute inset-0 h-full w-full object-cover will-change-transform animate-hero-slow-zoom"
-        />
+        <video
+          id="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={heroPoster.src}
+          class="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <script>
+          (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              const el = document.getElementById('hero-video');
+              if (el instanceof HTMLVideoElement) el.pause();
+            }
+          })();
+        </script>
         <div
           class="absolute inset-0 bg-slate-950/60 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.28),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(34,197,94,0.24),_transparent_55%)] mix-blend-multiply"
           aria-hidden="true"
@@ -57,29 +78,37 @@ const featuredPosts = homepageSlugs
       </div>
     </section>
 
-    <!-- Contact form (below the fold) -->
-    <section id="contact">
-      <PageSection title="Contact" prominent>
-        <p>Call or text for a free quote: <a href="tel:+12174876264" class="font-semibold text-emerald-600 no-underline hover:underline">(217) 487-6264</a>. Or send us a message:</p>
-        <div class="mt-6 max-w-xl">
-          <ContactForm />
-        </div>
-      </PageSection>
-    </section>
-
     <!-- Services -->
     <PageSection title="Services" prominent>
       <p>We offer <strong>mowing</strong>, <strong>edging</strong>, and <strong>trimming</strong> to keep your lawn looking sharp. Regular maintenance or one-time cleanups — we can tailor a schedule to your property. Rates: contact us for a quote.</p>
       <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Card>
-          <Image src={mowerImage} alt="Lawn mower for mowing service." width={560} height={374} class="mb-3 h-56 w-full rounded-xl object-cover" />
+          <Picture
+          src={mowerImage}
+          formats={['avif', 'webp']}
+          alt="Lawn mower for mowing service."
+          width={560}
+          height={374}
+          widths={[340, 560]}
+          sizes="(max-width: 640px) 100vw, 340px"
+          class="mb-3 h-56 w-full rounded-xl object-cover"
+        />
           <h3 class="text-lg font-semibold text-slate-900">Mowing</h3>
           <p class="mt-1 text-sm text-slate-600">
             Regular cuts to keep your yard even, tidy, and ready to enjoy all season long.
           </p>
         </Card>
         <Card>
-          <Image src={edgingImage} alt="Weed eater and edging along a walkway." width={560} height={374} class="mb-3 h-56 w-full rounded-xl object-cover" />
+          <Picture
+          src={edgingImage}
+          formats={['avif', 'webp']}
+          alt="Weed eater and edging along a walkway."
+          width={560}
+          height={374}
+          widths={[340, 560]}
+          sizes="(max-width: 640px) 100vw, 340px"
+          class="mb-3 h-56 w-full rounded-xl object-cover"
+        />
           <h3 class="text-lg font-semibold text-slate-900">Edging & trimming</h3>
           <p class="mt-1 text-sm text-slate-600">
             Clean lines along sidewalks, driveways, and beds for a crisp, finished look.
@@ -94,14 +123,32 @@ const featuredPosts = homepageSlugs
         <p>Quality mowing and clean edges — we take pride in the details.</p>
         <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
           <Card>
-            <Image src={lawnCloseup} alt="Close-up of a well-maintained lawn." width={560} height={374} class="mb-3 h-56 w-full rounded-xl object-cover" />
+            <Picture
+            src={lawnCloseup}
+            formats={['avif', 'webp']}
+            alt="Close-up of a well-maintained lawn."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 340px"
+            class="mb-3 h-56 w-full rounded-xl object-cover"
+          />
             <h3 class="text-lg font-semibold text-slate-900">Thick, healthy turf</h3>
             <p class="mt-1 text-sm text-slate-600">
               Strong, even growth that looks great from the street and feels good underfoot.
             </p>
           </Card>
           <Card>
-            <Image src={mowerAbove} alt="Lawn mower at work from above." width={560} height={374} class="mb-3 h-56 w-full rounded-xl object-cover" />
+            <Picture
+            src={mowerAbove}
+            formats={['avif', 'webp']}
+            alt="Lawn mower at work from above."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 340px"
+            class="mb-3 h-56 w-full rounded-xl object-cover"
+          />
             <h3 class="text-lg font-semibold text-slate-900">Clean passes & patterns</h3>
             <p class="mt-1 text-sm text-slate-600">
               Straight, consistent cuts that make your yard stand out in the neighborhood.
@@ -159,6 +206,16 @@ const featuredPosts = homepageSlugs
           </a>
         </div>
       </Container>
+    </section>
+
+    <!-- Contact form (bottom of page; hero/CTA "Get a free quote" link to #contact) -->
+    <section id="contact">
+      <PageSection title="Contact" prominent>
+        <p>Call or text for a free quote: <a href="tel:+12174876264" class="font-semibold text-emerald-600 no-underline hover:underline">(217) 487-6264</a>. Or send us a message:</p>
+        <div class="mt-6 max-w-xl">
+          <ContactForm />
+        </div>
+      </PageSection>
     </section>
   </>
 </PageLayout>
