@@ -15,6 +15,8 @@ import edgingImage from "../images/weed_eater_edging.jpg";
 import lawnCloseup from "../images/lawn_closeup.jpg";
 import mowerAbove from "../images/mower_above.jpg";
 import lawncareImageSource from "../images/lawncare.jpg";
+import hedgeTrimmingImage from "../images/hedge-trimming.jpg";
+import weedControlImage from "../images/weed_control.jpg";
 
 const heroPoster = await getImage({
   src: heroPosterSource,
@@ -40,9 +42,11 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
 >
   <>
     <!-- Hero: full-bleed image with overlay and headline -->
-    <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none">
+    <section
+      class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-6 sm:pb-12"
+    >
       <div
-        class="relative aspect-[16/9] sm:aspect-[21/9] xl:aspect-[24/9] w-full overflow-hidden"
+        class="relative min-h-[230px] aspect-[16/9] sm:aspect-[21/9] xl:aspect-[24/9] w-full overflow-hidden"
       >
         <video
           id="hero-video"
@@ -75,24 +79,23 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
         >
           <Badge
             variant="emerald"
-            class="mb-4 bg-emerald-300/90 text-emerald-950 shadow-md shadow-emerald-900/40 backdrop-blur-sm animate-badge-subtle-pulse"
+            class="mb-4 hidden bg-emerald-300/90 text-emerald-950 shadow-md shadow-emerald-900/40 backdrop-blur-sm animate-badge-subtle-pulse sm:inline-block"
           >
             Locally owned · Central Illinois
           </Badge>
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 class="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             Lawn care in Central Illinois
           </h1>
           <p
             class="mt-4 max-w-2xl text-lg font-medium text-white/90 sm:text-xl"
           >
-            Mowing, edging, and trimming — we keep your lawn looking sharp.
-            Champaign and surrounding areas.
+            Mowing, edging, and trimming — we keep your lawn looking sharp.<span
+              class="hidden sm:inline"
+            >
+              Champaign and surrounding areas.</span
+            >
           </p>
-          <Button
-            href="/#contact"
-            variant="secondary"
-            class="mt-6 bg-white text-slate-900 hover:bg-white/90"
-          >
+          <Button href="/#contact" variant="secondary" class="mt-6">
             Get a free quote
           </Button>
         </div>
@@ -105,53 +108,192 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
         <p>
           We offer <strong>mowing</strong>, <strong>edging</strong>, and <strong
             >trimming</strong
-          > to keep your lawn looking sharp. Regular maintenance or one-time cleanups
-          — we can tailor a schedule to your property. Rates: contact us for a quote.
+          > to keep your lawn looking sharp, plus <strong
+            >Spring and Fall Cleanup</strong
+          >, <strong>hedge trimming</strong> (residential and commercial), and <strong
+            >weed removal / weed treatment</strong
+          > for areas on your property (commercial). We can tailor a schedule to your
+          property. <strong>Free quotes</strong> for all services.
         </p>
-        <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <Card>
-            <Picture
-              src={mowerImage}
-              formats={["avif", "webp"]}
-              alt="Lawn mower for mowing service."
-              width={560}
-              height={374}
-              widths={[340, 560]}
-              sizes="(max-width: 640px) 100vw, 340px"
-              class="mb-3 h-56 w-full rounded-sm object-cover"
-            />
-            <h3 class="text-lg font-semibold text-slate-900">Mowing</h3>
-            <p class="mt-1 text-sm text-slate-600">
-              Regular cuts to keep your yard even, tidy, and ready to enjoy all
-              season long.
-            </p>
-          </Card>
-          <Card>
-            <Picture
-              src={edgingImage}
-              formats={["avif", "webp"]}
-              alt="Weed eater and edging along a walkway."
-              width={560}
-              height={374}
-              widths={[340, 560]}
-              sizes="(max-width: 640px) 100vw, 340px"
-              class="mb-3 h-56 w-full rounded-sm object-cover"
-            />
-            <h3 class="text-lg font-semibold text-slate-900">
-              Edging & trimming
-            </h3>
-            <p class="mt-1 text-sm text-slate-600">
-              Clean lines along sidewalks, driveways, and beds for a crisp,
-              finished look.
-            </p>
-          </Card>
+        <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            href="/services/mowing/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={mowerImage}
+                formats={["avif", "webp"]}
+                alt="Lawn mower for mowing service."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Mowing
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Regular cuts to keep your yard even, tidy, and ready to enjoy
+                all season long.
+              </p>
+            </Card>
+          </a>
+          <a
+            href="/services/edging-trimming/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={edgingImage}
+                formats={["avif", "webp"]}
+                alt="Weed eater and edging along a walkway."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Edging & Trimming
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Clean lines along sidewalks, driveways, and beds for a crisp,
+                finished look.
+              </p>
+            </Card>
+          </a>
+          <a
+            href="/services/spring-fall-cleanup/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={lawnCloseup}
+                formats={["avif", "webp"]}
+                alt="Well-maintained lawn after seasonal Cleanup."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Spring & Fall Cleanup
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Leaf removal, debris clearing, and seasonal prep for <strong
+                  >residential</strong
+                > and <strong>commercial</strong> properties. Free quotes.
+              </p>
+            </Card>
+          </a>
+          <a
+            href="/services/scheduled-maintenance/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={mowerAbove}
+                formats={["avif", "webp"]}
+                alt="Lawn mower at work — scheduled maintenance."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Scheduled Maintenance
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                We come on a set schedule so your lawn stays consistently cared
+                for. Residential and commercial.
+              </p>
+            </Card>
+          </a>
+          <a
+            href="/services/hedge-trimming/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={hedgeTrimmingImage}
+                formats={["avif", "webp"]}
+                alt="Hedge trimming and landscape trimming."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Hedge trimming
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Shaping and trimming hedges and landscape for a neat look. <strong
+                  >Residential</strong
+                > and <strong>commercial</strong>.
+              </p>
+            </Card>
+          </a>
+          <a
+            href="/services/weed-removal/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={weedControlImage}
+                formats={["avif", "webp"]}
+                alt="Weed control and treatment for property areas."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Weed removal & treatment
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Weed removal and weed treatment for areas on your property. <strong
+                  >Commercial</strong
+                > service.
+              </p>
+            </Card>
+          </a>
         </div>
       </PageSection>
     </section>
 
     <!-- Blog hero: background image + CTA to blog -->
     <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none">
-      <div class="relative aspect-[21/9] min-h-[280px] w-full overflow-hidden">
+      <div class="relative aspect-[21/9] w-full overflow-hidden">
         <Picture
           src={lawncareImageSource}
           formats={["avif", "webp"]}
@@ -178,11 +320,7 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
             Tips and how-tos for mowing, edging, and maintaining a healthier,
             better-looking lawn all year round.
           </p>
-          <Button
-            href="/blog/"
-            variant="secondary"
-            class="mt-6 bg-white text-slate-900 hover:bg-white/90"
-          >
+          <Button href="/blog/" variant="secondary" class="mt-6">
             Read the blog
           </Button>
         </div>
@@ -299,12 +437,9 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
             > for a free quote. We serve Champaign, Rantoul, Paxton, Mahomet, St.
             Joseph, and surrounding areas.
           </p>
-          <a
-            href="/#contact"
-            class="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-base font-semibold text-emerald-600 no-underline shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
+          <Button href="/#contact" variant="secondary" class="mt-6">
             Get a free quote
-          </a>
+          </Button>
         </div>
       </Container>
     </section>

@@ -1,0 +1,38 @@
+---
+/**
+ * Blog links section for service (and other) pages.
+ * Single source of truth for the "Learn what we know!" heading and layout—
+ * update the title or intro here and it applies everywhere the component is used.
+ */
+import { getCollection, type CollectionEntry } from "astro:content";
+import PageSection from "./PageSection.astro";
+
+interface Props {
+  /** Blog post slugs (ids) to link to, in order. */
+  slugs: string[];
+}
+
+const { slugs } = Astro.props;
+const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
+const posts: CollectionEntry<"blog">[] = slugs
+  .map((slug) => allPosts.find((p) => p.id === slug))
+  .filter((post): post is CollectionEntry<"blog"> => post != null);
+---
+<PageSection title="Learn what we know!" prominent>
+  <p class="mb-4">Tips and how-tos from our blog—so you can do it yourself, or sit back and let us help.</p>
+  <ul class="list-none space-y-2 p-0">
+    {posts.map((post) => (
+      <li>
+        <a
+          href={`/blog/${post.id}`}
+          class="font-medium text-emerald-600 no-underline hover:underline"
+        >
+          {post.data.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="mt-6">
+    <a href="/blog/" class="font-medium text-emerald-600 no-underline hover:underline">View all articles</a>
+  </p>
+</PageSection>

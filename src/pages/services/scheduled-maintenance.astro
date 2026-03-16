@@ -1,0 +1,79 @@
+---
+import { Picture } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import PageSection from "../../components/PageSection.astro";
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import LearnWhatWeKnow from "../../components/LearnWhatWeKnow.astro";
+import maintenanceHero from "../../images/mower_above.jpg";
+import lawnCloseup from "../../images/lawn_closeup.jpg";
+---
+<PageLayout
+  title="Scheduled Maintenance — Wink's Lawn Care"
+  description="Scheduled lawn maintenance in Champaign, Rantoul, Central Illinois. Set it and forget it. Residential and commercial. Free quote."
+  current="home"
+>
+  <!-- Hero: full-bleed image with overlay and title -->
+  <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-8 sm:pb-12">
+    <div class="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden">
+      <Picture
+        src={maintenanceHero}
+        formats={["avif", "webp"]}
+        alt=""
+        width={1600}
+        height={686}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        class="absolute inset-0 bg-slate-900/50 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(16,185,129,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Scheduled maintenance</h1>
+        <p class="mt-2 max-w-xl text-lg text-white/90">Set it and forget it—we show up on schedule.</p>
+      </div>
+    </div>
+  </section>
+
+  <PageSection title="What we do" prominent accentHeading>
+    <p>
+      Scheduled maintenance means we show up on a set schedule—weekly, every other week, or whatever fits your property—so your lawn stays consistently cared for. No guessing when we’ll be there; you can plan around a reliable routine.
+    </p>
+    <p>
+      We combine mowing, edging, and trimming on each visit so you get a complete service every time. Ideal for <strong>residential</strong> homeowners who want a hands-off lawn and for <strong>commercial</strong> properties that need a steady, professional look in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+    </p>
+    <p>
+      <strong>Free quotes.</strong> Call or text <a href="tel:+12174876264">(217) 487-6264</a> or <a href="/contact/">send us a message</a> to set up a schedule.
+    </p>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Quality you can see" prominent accentHeading>
+      <div class="mt-6 max-w-2xl">
+        <Card>
+          <Picture
+            src={lawnCloseup}
+            formats={["avif", "webp"]}
+            alt="Consistently maintained lawn."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 560px"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
+          />
+          <p class="text-sm text-slate-600">
+            Regular visits keep your turf even, tidy, and ready to enjoy—without you having to think about it.
+          </p>
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <LearnWhatWeKnow slugs={["seasonal-lawn-care-calendar", "how-to-mow-like-a-pro", "why-a-great-lawn-matters"]} />
+</PageLayout>

@@ -18,6 +18,7 @@ const { Content } = await render(post);
   title={`${post.data.title} — Wink's Lawn Care`}
   description={post.data.description}
   current="blog"
+  mainClass="bg-slate-50/80"
 >
   <header class="py-10 sm:py-12" slot="header">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -30,7 +31,11 @@ const { Content } = await render(post);
     </div>
   </header>
 
-  <article class="mx-auto max-w-7xl px-4 py-8 text-slate-600 leading-relaxed sm:px-6 lg:px-8 [&_h2]:mt-8 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-slate-900 [&_p]:mb-4 [&_a]:font-medium [&_a]:text-emerald-600 [&_a]:no-underline [&_a:hover]:underline [&_ul]:mb-4 [&_ul]:pl-6">
-    <Content />
-  </article>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="rounded-lg bg-white/95 shadow-sm ring-1 ring-slate-200/60 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+      <article class="text-slate-600 leading-relaxed [&_h2]:mt-8 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-slate-900 [&_p]:mb-4 [&_a]:font-medium [&_a]:text-emerald-600 [&_a]:no-underline [&_a:hover]:underline [&_ul]:mb-4 [&_ul]:pl-6">
+        <Content />
+      </article>
+    </div>
+  </div>
 </PageLayout>

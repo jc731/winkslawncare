@@ -1,0 +1,79 @@
+---
+import { Picture } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import PageSection from "../../components/PageSection.astro";
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import LearnWhatWeKnow from "../../components/LearnWhatWeKnow.astro";
+import edgingHero from "../../images/weed_eater_edging.jpg";
+import edgeClose from "../../images/finished-edge-close.png";
+---
+<PageLayout
+  title="Edging & Trimming — Wink's Lawn Care"
+  description="Lawn edging and trimming in Champaign, Rantoul, and Central Illinois. Clean lines along walks and beds. Free quote."
+  current="home"
+>
+  <!-- Hero: full-bleed image with overlay and title -->
+  <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-8 sm:pb-12">
+    <div class="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden">
+      <Picture
+        src={edgingHero}
+        formats={["avif", "webp"]}
+        alt=""
+        width={1600}
+        height={686}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        class="absolute inset-0 bg-slate-900/50 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(16,185,129,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Edging & trimming</h1>
+        <p class="mt-2 max-w-xl text-lg text-white/90">Clean lines along walks, drives, and beds.</p>
+      </div>
+    </div>
+  </section>
+
+  <PageSection title="What we do" prominent accentHeading>
+    <p>
+      Edging and trimming give your yard a finished look. We clean the lines along sidewalks, driveways, and landscape beds so everything looks crisp and intentional—no ragged grass creeping over concrete or into mulch.
+    </p>
+    <p>
+      We include edging and trimming with our mowing service so you get a complete cut every visit. For residential and commercial properties in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas, we keep the details sharp.
+    </p>
+    <p>
+      <strong>Free quotes.</strong> Call or text <a href="tel:+12174876264">(217) 487-6264</a> or <a href="/contact/">send us a message</a> to get started.
+    </p>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Quality you can see" prominent accentHeading>
+      <div class="mt-6 max-w-2xl">
+        <Card>
+          <Picture
+            src={edgeClose}
+            formats={["avif", "webp"]}
+            alt="Close-up of a crisp edge along a walkway."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 560px"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
+          />
+          <p class="text-sm text-slate-600">
+            Crisp edges and trimmed borders give your property a polished, professional look.
+          </p>
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <LearnWhatWeKnow slugs={["how-to-edging-trimming", "why-a-great-lawn-matters"]} />
+</PageLayout>

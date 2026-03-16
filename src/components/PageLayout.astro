@@ -9,32 +9,153 @@ interface Props {
   title?: string;
   description?: string;
   current?: 'home' | 'blog' | 'contact';
+  /** Optional class for the main content area (e.g. subtle grey background on blog pages) */
+  mainClass?: string;
 }
-const { title, description, current } = Astro.props;
+const { title, description, current, mainClass } = Astro.props;
 ---
 <Layout title={title} description={description}>
   <div class="flex flex-col min-h-full bg-white">
     <header class="py-5 sm:py-6">
       <Container>
-        <nav class="relative flex items-center justify-between gap-6">
+        <div class="relative flex items-center justify-between gap-6">
           <a href="/" class="text-xl font-semibold tracking-tight text-slate-900 no-underline hover:text-slate-700">
             Wink's Lawn Care
           </a>
-          <div class="flex items-center gap-6 sm:gap-8">
+
+          <!-- Desktop: horizontal nav + CTA (visible from sm up) -->
+          <div class="hidden sm:flex sm:items-center sm:gap-8">
             <Nav current={current} />
             <Button href="/contact/" size="sm">
               Get a quote
             </Button>
           </div>
-        </nav>
+
+          <!-- Mobile: hamburger (visible below sm) -->
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="flex h-11 w-11 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:hidden"
+            aria-expanded="false"
+            aria-controls="mobile-menu-panel"
+            aria-label="Open main menu"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- Hamburger icon (hidden when menu open) -->
+            <svg id="mobile-menu-open-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!-- Close icon (shown when menu open) -->
+            <svg id="mobile-menu-close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile menu panel (below sm only; open state toggled by JS) -->
+        <div
+          id="mobile-menu-panel"
+          class="fixed inset-0 top-0 z-40 flex flex-col bg-white opacity-0 pointer-events-none transition-[opacity] duration-300 ease-out sm:hidden data-[open=true]:opacity-100 data-[open=true]:pointer-events-auto"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Main menu"
+          data-open="false"
+        >
+          <!-- Header bar: logo + close X (always visible when menu is open) -->
+          <div class="flex h-[4.5rem] shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4">
+            <a href="/" class="text-xl font-semibold tracking-tight text-slate-900 no-underline hover:text-slate-700">
+              Wink's Lawn Care
+            </a>
+            <button
+              type="button"
+              id="mobile-menu-close-btn"
+              class="flex h-11 w-11 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              aria-label="Close main menu"
+            >
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <!-- Content: nav + CTA (gentle slide-in) -->
+          <div
+            id="mobile-menu-content"
+            class="flex flex-1 flex-col overflow-y-auto border-t border-slate-200 bg-white px-4 py-6 shadow-lg transition-[transform] duration-300 ease-out -translate-y-2 data-[open=true]:translate-y-0"
+            data-open="false"
+          >
+            <Nav current={current} vertical />
+            <div class="mt-6">
+              <Button href="/contact/" size="sm" class="w-full justify-center sm:w-auto">
+                Get a quote
+              </Button>
+            </div>
+          </div>
+        </div>
       </Container>
     </header>
 
-    <main class="flex-1 overflow-x-hidden">
+    <main class={`flex-1 overflow-x-hidden${mainClass ? ` ${mainClass}` : ''}`}>
       <slot name="header" />
       <slot />
     </main>
 
     <Footer />
   </div>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('mobile-menu-button');
+      const panel = document.getElementById('mobile-menu-panel');
+      const content = document.getElementById('mobile-menu-content');
+      const openIcon = document.getElementById('mobile-menu-open-icon');
+      const closeIcon = document.getElementById('mobile-menu-close-icon');
+      const closeBtn = document.getElementById('mobile-menu-close-btn');
+
+      if (!btn || !panel) return;
+
+      function isOpen(): boolean {
+        return panel!.getAttribute('aria-hidden') !== 'true';
+      }
+
+      function setOpen(open: boolean): void {
+        const next = !!open;
+        const value = next ? 'true' : 'false';
+        panel!.setAttribute('aria-hidden', String(!next));
+        panel!.setAttribute('data-open', value);
+        if (content) content.setAttribute('data-open', value);
+        btn!.setAttribute('aria-expanded', String(next));
+        btn!.setAttribute('aria-label', next ? 'Close main menu' : 'Open main menu');
+        openIcon?.classList.toggle('hidden', next);
+        closeIcon?.classList.toggle('hidden', !next);
+        document.body.classList.toggle('overflow-hidden', next);
+      }
+
+      function close(): void {
+        setOpen(false);
+      }
+
+      btn.addEventListener('click', function () {
+        setOpen(!isOpen());
+      });
+
+      closeBtn?.addEventListener('click', close);
+
+      document.addEventListener('keydown', function (e: KeyboardEvent) {
+        if (e.key === 'Escape' && isOpen()) close();
+      });
+
+      // Close when clicking anywhere in the panel that isn't a link or button (e.g. empty space, header text area)
+      panel.addEventListener('click', function (e: MouseEvent) {
+        const target = e.target;
+        if (target instanceof Element && (target.closest('a') || target.closest('button'))) return;
+        close();
+      });
+
+      // Close when a nav link is clicked (full page reload will clear state anyway; helps if you add View Transitions later)
+      panel.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', close);
+      });
+    })();
+  </script>
 </Layout>

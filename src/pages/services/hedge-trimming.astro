@@ -1,0 +1,78 @@
+---
+import { Picture } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import PageSection from "../../components/PageSection.astro";
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import LearnWhatWeKnow from "../../components/LearnWhatWeKnow.astro";
+import hedgeHero from "../../images/hedge-trimming.jpg";
+---
+<PageLayout
+  title="Hedge Trimming — Wink's Lawn Care"
+  description="Hedge trimming and landscape trimming in Champaign, Rantoul, Central Illinois. Residential and commercial. Free quote."
+  current="home"
+>
+  <!-- Hero: full-bleed image with overlay and title -->
+  <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-8 sm:pb-12">
+    <div class="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden">
+      <Picture
+        src={hedgeHero}
+        formats={["avif", "webp"]}
+        alt=""
+        width={1600}
+        height={686}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        class="absolute inset-0 bg-slate-900/50 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(16,185,129,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Hedge trimming</h1>
+        <p class="mt-2 max-w-xl text-lg text-white/90">Shaping and trimming hedges for a neat, professional look. Residential and commercial.</p>
+      </div>
+    </div>
+  </section>
+
+  <PageSection title="What we do" prominent accentHeading>
+    <p>
+      Hedge trimming keeps your landscape looking tidy and intentional. We shape and trim hedges and shrubs so they stay neat, healthy, and in scale with your property—no overgrown or ragged edges.
+    </p>
+    <p>
+      We offer hedge trimming for <strong>residential</strong> and <strong>commercial</strong> properties in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. Whether you need a one-time cleanup or regular trimming on schedule, we can tailor the service to your property.
+    </p>
+    <p>
+      <strong>Free quotes.</strong> Call or text <a href="tel:+12174876264">(217) 487-6264</a> or <a href="/contact/">send us a message</a> to get started.
+    </p>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Quality you can see" prominent accentHeading>
+      <div class="mt-6 max-w-2xl">
+        <Card>
+          <Picture
+            src={hedgeHero}
+            formats={["avif", "webp"]}
+            alt="Well-trimmed hedges and a cared-for landscape."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 560px"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
+          />
+          <p class="text-sm text-slate-600">
+            Well-trimmed hedges and a cared-for landscape improve curb appeal and make your property stand out.
+          </p>
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <LearnWhatWeKnow slugs={["how-to-edging-trimming", "why-a-great-lawn-matters", "hoa-friendly-lawn"]} />
+</PageLayout>

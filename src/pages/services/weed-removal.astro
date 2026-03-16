@@ -1,0 +1,78 @@
+---
+import { Picture } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import PageSection from "../../components/PageSection.astro";
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import LearnWhatWeKnow from "../../components/LearnWhatWeKnow.astro";
+import weedControlImage from "../../images/weed_control.jpg";
+---
+<PageLayout
+  title="Weed Removal & Treatment — Wink's Lawn Care"
+  description="Weed removal and weed treatment for commercial properties in Champaign, Rantoul, Central Illinois. Areas on your property. Free quote."
+  current="home"
+>
+  <!-- Hero: full-bleed image with overlay and title -->
+  <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-8 sm:pb-12">
+    <div class="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden">
+      <Picture
+        src={weedControlImage}
+        formats={["avif", "webp"]}
+        alt=""
+        width={1600}
+        height={686}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        class="absolute inset-0 bg-slate-900/50 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(16,185,129,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Weed removal & treatment</h1>
+        <p class="mt-2 max-w-xl text-lg text-white/90">Weed removal and treatment for areas on your property. Commercial service.</p>
+      </div>
+    </div>
+  </section>
+
+  <PageSection title="What we do" prominent accentHeading>
+    <p>
+      Weed removal and weed treatment help keep your property looking clean and professional. We focus on areas on your property—driveways, walkways, beds, and other spots where weeds take hold—so you get a polished look without the hassle.
+    </p>
+    <p>
+      This service is offered as a <strong>commercial</strong> service for businesses and properties in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. We can work with you on a schedule that fits your site and your needs.
+    </p>
+    <p>
+      <strong>Free quotes.</strong> Call or text <a href="tel:+12174876264">(217) 487-6264</a> or <a href="/contact/">send us a message</a> to get a quote.
+    </p>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Quality you can see" prominent accentHeading>
+      <div class="mt-6 max-w-2xl">
+        <Card>
+          <Picture
+            src={weedControlImage}
+            formats={["avif", "webp"]}
+            alt="Weed control and treatment for property areas."
+            width={560}
+            height={374}
+            widths={[340, 560]}
+            sizes="(max-width: 640px) 100vw, 560px"
+            class="mb-3 h-56 w-full rounded-sm object-cover"
+          />
+          <p class="text-sm text-slate-600">
+            Targeted weed removal and treatment keep high-visibility areas clean and professional.
+          </p>
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <LearnWhatWeKnow slugs={["dealing-with-weeds", "eco-friendly-lawn-care", "fertilizing-101"]} />
+</PageLayout>

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import PageLayout from '../../components/PageLayout.astro';
+import defaultFeaturedImage from '../../images/winks logo.png';
 
 const allPosts = (await getCollection('blog', ({ data }) => data.draft !== true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -21,8 +23,9 @@ function searchText(post: (typeof allPosts)[0]): string {
   title="Blog — Wink's Lawn Care"
   description="Lawn care tips, how-tos, and seasonal advice for Central Illinois. Search and browse all articles."
   current="blog"
+  mainClass="bg-slate-50/80"
 >
-  <header class="border-b border-slate-200 bg-gradient-to-b from-emerald-50/80 to-white" slot="header">
+  <header class="border-b border-slate-200 bg-gradient-to-b from-emerald-50/80 to-slate-50/80" slot="header">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <p class="text-sm font-medium uppercase tracking-wider text-emerald-700">Tips & how-tos</p>
       <h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
@@ -52,7 +55,8 @@ function searchText(post: (typeof allPosts)[0]): string {
     </div>
   </header>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="rounded-lg bg-white/95 shadow-sm ring-1 ring-slate-200/60 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
     <!-- Featured post (above the fold on desktop; search is first) -->
     {featuredPost && (
       <section class="py-8 sm:py-12" aria-labelledby="featured-heading">
@@ -63,7 +67,15 @@ function searchText(post: (typeof allPosts)[0]): string {
           href={`/blog/${featuredPost.id}`}
           class="group mt-4 flex flex-col overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm transition hover:border-emerald-200 hover:shadow-md sm:flex-row"
         >
-          <span class="block w-full shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 sm:w-48 sm:min-h-[12rem]" aria-hidden="true" />
+          <span class="block w-full shrink-0 overflow-hidden sm:w-48 sm:min-h-[12rem] md:w-[14.4rem] md:min-h-[14.4rem]" aria-hidden="true">
+            <Image
+              src={defaultFeaturedImage}
+              alt=""
+              width={192}
+              height={192}
+              class="h-full w-full object-cover"
+            />
+          </span>
           <div class="flex flex-1 flex-col p-5 sm:p-6">
             <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Featured article</span>
             <h3 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-emerald-700 sm:text-2xl">
@@ -162,6 +174,7 @@ function searchText(post: (typeof allPosts)[0]): string {
         </div>
       </div>
     </section>
+    </div>
   </div>
 
   <script define:vars={{ hasPosts: allPosts.length > 0 }}>

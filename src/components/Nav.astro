@@ -1,11 +1,48 @@
 ---
 interface Props {
   current?: 'home' | 'blog' | 'contact';
+  /** When true, renders as a vertical stack for mobile menu (larger tap targets). */
+  vertical?: boolean;
 }
-const { current } = Astro.props;
+const { current, vertical = false } = Astro.props;
+const linkClass = "text-sm font-medium no-underline";
+const activeClass = "text-slate-900";
+const inactiveClass = "text-slate-600 hover:text-slate-900";
 ---
-<nav class="flex items-center gap-6 sm:gap-8" aria-label="Main">
-  <a href="/" class:list={["text-sm font-medium no-underline", current === 'home' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Home</a>
-  <a href="/blog/" class:list={["text-sm font-medium no-underline", current === 'blog' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Blog</a>
-  <a href="/contact/" class:list={["text-sm font-medium no-underline", current === 'contact' ? "text-slate-900" : "text-slate-600 hover:text-slate-900"]}>Contact</a>
+<nav
+  class:list={[
+    vertical ? "flex flex-col gap-1 py-2" : "flex items-center gap-6 sm:gap-8",
+  ]}
+  aria-label="Main"
+>
+  <a
+    href="/"
+    class:list={[
+      linkClass,
+      current === "home" ? activeClass : inactiveClass,
+      vertical && "rounded-md px-3 py-3 text-base",
+    ]}
+  >
+    Home
+  </a>
+  <a
+    href="/blog/"
+    class:list={[
+      linkClass,
+      current === "blog" ? activeClass : inactiveClass,
+      vertical && "rounded-md px-3 py-3 text-base",
+    ]}
+  >
+    Blog
+  </a>
+  <a
+    href="/contact/"
+    class:list={[
+      linkClass,
+      current === "contact" ? activeClass : inactiveClass,
+      vertical && "rounded-md px-3 py-3 text-base",
+    ]}
+  >
+    Contact
+  </a>
 </nav>
