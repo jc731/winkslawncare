@@ -1,6 +1,6 @@
 ---
 import { Image, Picture, getImage } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import PageLayout from "../components/PageLayout.astro";
 import PageSection from "../components/PageSection.astro";
 import Container from "../components/Container.astro";
@@ -28,12 +28,16 @@ const homepageSlugs = [
   "how-to-mow-like-a-pro",
   "seasonal-lawn-care-calendar",
 ];
-const featuredPosts = homepageSlugs
+const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
   .map((slug) => allPosts.find((p) => p.id === slug))
-  .filter(Boolean);
+  .filter((post): post is CollectionEntry<"blog"> => post != null);
 ---
 
-<PageLayout current="home">
+<PageLayout
+  title="Lawn Care Champaign, IL | Mowing, Edging & Trimming — Wink's Lawn Care"
+  description="Professional lawn mowing, edging, and trimming in Champaign, Rantoul, and Central Illinois. Get a free quote. Locally owned."
+  current="home"
+>
   <>
     <!-- Hero: full-bleed image with overlay and headline -->
     <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none">
