@@ -7,7 +7,7 @@ tags: ["edging", "trimming", "how-to", "lawn care", "DIY"]
 
 Mowing gets the bulk of the lawn, but **edging and trimming** are what make it look **finished**. Clean lines along pavement and neat borders around beds and fences tell people you care about the details. Here’s how to do it yourself—and when it might make sense to let the pros handle it.
 
-![Clean edge along a concrete walkway.](/blog/edging-walkway.jpg)
+![Clean edge along a concrete walkway.](/blog/edging-walkway.png)
 
 ## Why edging and trimming matter
 
@@ -31,7 +31,7 @@ You can use a **manual edger** (half-moon or stick edger), a **power edger**, or
 
 **Frequency:** Edge every time you mow, or at least every other time, so the line never gets overgrown. That’s how we keep edges sharp for our customers—consistency beats a once-a-season blitz.
 
-![Weed eater in use along a border.](/blog/trimming-trimmer.jpg)
+![Weed eater in use along a border.](/blog/trimming-trimmer.png)
 
 ## How to trim where the mower can’t reach
 
@@ -59,7 +59,7 @@ When you’re done edging, you should see:
 - **A slight trench or vertical face** where the grass meets the pavement, so the edge holds its shape between sessions.
 - **No ragged clumps** along the line.
 
-![Close-up of a crisp grass edge against pavement.](/blog/finished-edge-close.jpg)
+![Close-up of a crisp grass edge against pavement.](/blog/finished-edge-close.png)
 
 That’s the standard we aim for on every job: edges that look deliberate and hold up between visits.
 

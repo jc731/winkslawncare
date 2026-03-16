@@ -8,7 +8,7 @@ featured: true
 
 Your lawn is one of the first things people notice about your home. Whether it’s neighbors, guests, or potential buyers, a neat, green yard sends a message: **this place is cared for**. In this post we’ll look at why a great lawn matters—for curb appeal, value, and your own pride—and how you can get there.
 
-![A well-maintained lawn and tidy landscaping in front of a home.](/blog/curb-appeal-hero.jpg)
+![A well-maintained lawn and tidy landscaping in front of a home.](/blog/curb-appeal-hero.png)
 
 ## Curb appeal: the first impression
 

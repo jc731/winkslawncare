@@ -7,7 +7,7 @@ tags: ["mowing", "how-to", "lawn care", "DIY"]
 
 A crisp, even cut is what makes a lawn look **intentional** instead of just “cut.” You don’t need expensive equipment—you need the right height, a consistent pattern, and a few habits that pros use every day. Here’s how to mow like a pro and get results you can be proud of.
 
-![Lawn with clear alternating mowing stripes.](/blog/mowing-stripes.jpg)
+![Lawn with clear alternating mowing stripes.](/blog/mowing-stripes.png)
 
 ## Set your mower height (and stick to it)
 
@@ -29,7 +29,7 @@ Pros overlap each pass by **a few inches** so no strip of grass is missed. That 
 
 A little overlap takes almost no extra time and makes a big difference in how finished the lawn looks.
 
-![Mower deck or wheel showing cutting height.](/blog/mower-height.jpg)
+![Mower deck or wheel showing cutting height.](/blog/mower-height.png)
 
 ## Choose a pattern that fits your yard
 
