@@ -52,11 +52,12 @@ const { title, description, current, mainClass } = Astro.props;
           </button>
         </div>
 
-        <!-- Mobile menu panel (below sm only; open state toggled by JS) -->
+        <!-- Mobile menu panel (below sm only; open state toggled by JS). inert when closed so focusable descendants are not in tab order (fixes aria-hidden + focusable Lighthouse issue). -->
         <div
           id="mobile-menu-panel"
           class="fixed inset-0 top-0 z-40 flex flex-col bg-white opacity-0 pointer-events-none transition-[opacity] duration-300 ease-out sm:hidden data-[open=true]:opacity-100 data-[open=true]:pointer-events-auto"
           aria-hidden="true"
+          inert
           role="dialog"
           aria-modal="true"
           aria-label="Main menu"
@@ -122,6 +123,11 @@ const { title, description, current, mainClass } = Astro.props;
         const next = !!open;
         const value = next ? 'true' : 'false';
         panel!.setAttribute('aria-hidden', String(!next));
+        if (next) {
+          panel!.removeAttribute('inert');
+        } else {
+          panel!.setAttribute('inert', '');
+        }
         panel!.setAttribute('data-open', value);
         if (content) content.setAttribute('data-open', value);
         btn!.setAttribute('aria-expanded', String(next));

@@ -23,7 +23,7 @@ const { title, id, prominent = false, accentHeading = false } = Astro.props;
       </h2>
     )}
     <div class:list={[
-      'mt-4 text-slate-600 leading-relaxed [&_p]:m-0 [&_p]:mb-4 [&_a:not([data-btn])]:text-emerald-600 [&_a:not([data-btn])]:font-medium [&_a:not([data-btn])]:no-underline [&_a:not([data-btn]):hover]:underline [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm',
+      'mt-4 text-slate-600 leading-relaxed [&_p]:m-0 [&_p]:mb-4 [&_a:not([data-btn])]:text-emerald-700 [&_a:not([data-btn])]:font-medium [&_a:not([data-btn])]:no-underline [&_a:not([data-btn]):hover]:underline [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm',
       title && (prominent ? 'mt-5' : 'mt-2')
     ]}>
       <slot />
