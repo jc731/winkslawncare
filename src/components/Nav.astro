@@ -5,7 +5,8 @@ interface Props {
   vertical?: boolean;
 }
 const { current, vertical = false } = Astro.props;
-const linkClass = "text-sm font-medium no-underline";
+const linkClass =
+  "inline-flex min-h-[48px] min-w-[48px] items-center text-sm font-medium no-underline";
 const activeClass = "text-slate-900";
 const inactiveClass = "text-slate-600 hover:text-slate-900";
 ---
