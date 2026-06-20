@@ -33,4 +33,4 @@ A great lawn is built on **timing**. In Central Illinois, our climate drives whe
 
 ---
 
-Sticking to this rhythm keeps your lawn healthy and looking good all year. If you’d rather leave the calendar to us, **Wink’s Lawn Care** handles mowing, edging, and trimming on a schedule that fits Central Illinois seasons. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Sticking to this rhythm keeps your lawn healthy and looking good all year. If you’d rather leave the calendar to us, **Wink’s Lawn Care** handles mowing, edging, and trimming on a schedule that fits Central Illinois seasons. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

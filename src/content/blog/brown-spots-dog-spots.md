@@ -40,4 +40,4 @@ Fungal disease can show up as rings, patches, or irregular brown areas. **Identi
 
 ---
 
-Keeping the rest of the lawn **mowed and edged** makes the yard look cared for even while you work on problem spots. If you’d like help with the routine cutting and trimming, Wink’s Lawn Care is here. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Keeping the rest of the lawn **mowed and edged** makes the yard look cared for even while you work on problem spots. If you’d like help with the routine cutting and trimming, Wink’s Lawn Care is here. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

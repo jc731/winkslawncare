@@ -29,4 +29,4 @@ A final clean edge and trim leave the yard looking neat going into winter and ma
 
 ---
 
-For the full year view, see our [seasonal lawn care calendar](/blog/seasonal-lawn-care-calendar). If you’d like **fall mowing and edging** handled for you, Wink’s Lawn Care stays on schedule until the season winds down. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+For the full year view, see our [seasonal lawn care calendar](/blog/seasonal-lawn-care-calendar). If you’d like **fall mowing and edging** handled for you, Wink’s Lawn Care stays on schedule until the season winds down. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

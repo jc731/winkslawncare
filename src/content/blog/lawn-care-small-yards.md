@@ -31,4 +31,4 @@ For eco-friendly options in small spaces, see [eco-friendly lawn care](/blog/eco
 
 Even 15–20 minutes of mowing and edging can feel like a chore when you’re busy. **Wink’s Lawn Care** serves small yards as well as large—we’ll keep your lawn mowed, edged, and trimmed on a schedule that works. Rates are based on the job; small properties often fit into a quick, efficient route.
 
-**Ready to free up your weekends?** [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+**Ready to free up your weekends?** [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

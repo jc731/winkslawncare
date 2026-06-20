@@ -77,4 +77,4 @@ Edging and trimming are totally doable yourself with the right tools and a bit o
 
 For the big picture on why this stuff matters, see [Why a great lawn matters](/blog/why-a-great-lawn-matters). For a clean cut from the mower, check out [How to mow like a pro](/blog/how-to-mow-like-a-pro).
 
-**Ready for edges and trim you don’t have to do yourself?** [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We’ll help you get the sharp, finished look your yard deserves.
+**Ready for edges and trim you don’t have to do yourself?** [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We’ll help you get the sharp, finished look your yard deserves.

@@ -41,4 +41,4 @@ No mowing when the grass is dormant. Avoid heavy traffic on frozen or soggy turf
 
 ---
 
-If you’d rather not think about height and timing, **Wink’s Lawn Care** handles mowing—and edging and trimming—on a schedule that fits the season. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+If you’d rather not think about height and timing, **Wink’s Lawn Care** handles mowing—and edging and trimming—on a schedule that fits the season. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

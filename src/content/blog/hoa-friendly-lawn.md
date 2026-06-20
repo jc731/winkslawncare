@@ -27,4 +27,4 @@ If you follow a [seasonal lawn care calendar](/blog/seasonal-lawn-care-calendar)
 
 Vacation, work, or health can make it hard to keep up. **Hiring a lawn service** is a common way to stay compliant without thinking about it. Wink’s Lawn Care handles mowing, edging, and trimming on a **reliable schedule**—so your lawn stays within HOA standards and you don’t have to worry about a notice.
 
-**Stay on the HOA’s good side and off your own to-do list.** [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+**Stay on the HOA’s good side and off your own to-do list.** [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

@@ -33,4 +33,4 @@ When rain returns, **resume normal mowing height** and consider a **light feedin
 
 ---
 
-Keeping the lawn **mowed and edged** (even at a reduced frequency during extreme drought) helps it look cared for. **Wink’s Lawn Care** can adjust the schedule to conditions—we’ll keep your lawn looking as good as the weather allows. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Keeping the lawn **mowed and edged** (even at a reduced frequency during extreme drought) helps it look cared for. **Wink’s Lawn Care** can adjust the schedule to conditions—we’ll keep your lawn looking as good as the weather allows. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

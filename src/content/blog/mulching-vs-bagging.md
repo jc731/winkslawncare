@@ -32,4 +32,4 @@ Every time you mow, you choose what to do with the clippings: **leave them on th
 
 ---
 
-Whether you mulch or bag, **consistent mowing and edging** keep the lawn looking sharp. If you’d rather leave the mowing to us, Wink’s Lawn Care can handle it—we’ll leave the lawn tidy and the clippings managed the way you prefer when possible. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Whether you mulch or bag, **consistent mowing and edging** keep the lawn looking sharp. If you’d rather leave the mowing to us, Wink’s Lawn Care can handle it—we’ll leave the lawn tidy and the clippings managed the way you prefer when possible. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

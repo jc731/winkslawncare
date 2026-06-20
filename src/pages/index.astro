@@ -17,6 +17,7 @@ import mowerAbove from "../images/mower_above.jpg";
 import lawncareImageSource from "../images/lawncare.jpg";
 import hedgeTrimmingImage from "../images/hedge-trimming.jpg";
 import weedControlImage from "../images/weed_control.jpg";
+import treeTrimmingImage from "../images/tree-removal-cleanup-champaign-il.jpg";
 
 const heroPoster = await getImage({
   src: heroPosterSource,
@@ -110,10 +111,12 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
             >trimming</strong
           > to keep your lawn looking sharp, plus <strong
             >Spring and Fall Cleanup</strong
-          >, <strong>hedge trimming</strong> (residential and commercial), and <strong
+          >, <strong>hedge trimming</strong> (residential and commercial), <strong
             >weed removal / weed treatment</strong
-          > for areas on your property (commercial). We can tailor a schedule to your
-          property. <strong>Free quotes</strong> for all services.
+          > for areas on your property (commercial), and <strong
+            >tree trimming</strong
+          > (trimming, storm debris cleanup, and brush removal). We can tailor a
+          schedule to your property. <strong>Free quotes</strong> for all services.
         </p>
         <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <a
@@ -287,6 +290,35 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
               </p>
             </Card>
           </a>
+          <a
+            href="/services/tree-trimming/"
+            class="group block no-underline text-inherit"
+          >
+            <Card
+              class="transition hover:border-emerald-200 hover:shadow-md h-full"
+            >
+              <Picture
+                src={treeTrimmingImage}
+                formats={["avif", "webp"]}
+                alt="Tree trimming, storm debris cleanup, and brush removal in Champaign, IL."
+                width={560}
+                height={374}
+                widths={[340, 560]}
+                sizes="(max-width: 640px) 100vw, 340px"
+                class="mb-3 h-56 w-full rounded-sm object-cover"
+              />
+              <h3
+                class="text-lg font-semibold text-slate-900 group-hover:text-emerald-700"
+              >
+                Tree trimming
+              </h3>
+              <p class="mt-1 text-sm text-slate-600">
+                Trimming, storm debris cleanup, and brush removal. <strong
+                  >Residential</strong
+                > and <strong>commercial</strong>.
+              </p>
+            </Card>
+          </a>
         </div>
       </PageSection>
     </section>
@@ -435,9 +467,9 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
           </h2>
           <p class="mt-4 text-lg text-white">
             Call or text <a
-              href="tel:+12174876264"
+              href="tel:+13097035386"
               class="inline-block min-h-[48px] py-2 leading-none font-semibold text-white underline hover:no-underline"
-              >(217) 487-6264</a
+              >(309) 703-5386</a
             > for a free quote. We serve Champaign, Rantoul, Paxton, Mahomet, St.
             Joseph, and surrounding areas.
           </p>
@@ -453,9 +485,9 @@ const featuredPosts: CollectionEntry<"blog">[] = homepageSlugs
       <PageSection title="Contact" prominent>
         <p>
           Call or text for a free quote: <a
-            href="tel:+12174876264"
+            href="tel:+13097035386"
             class="inline-block min-h-[48px] py-2 leading-none font-semibold text-emerald-700 no-underline hover:underline"
-            >(217) 487-6264</a
+            >(309) 703-5386</a
           >. Or send us a message:
         </p>
         <div class="mt-6 max-w-xl">

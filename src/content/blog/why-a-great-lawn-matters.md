@@ -55,4 +55,4 @@ You can do it yourself with the right habits: **mow regularly** at a good height
 
 If you’d rather spend your time on other things, **we’re here to help**. Wink’s Lawn Care serves Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. We handle mowing, edging, and trimming on a schedule that works for you.
 
-**Ready for a lawn that looks sharp all season?** [Get a free quote](/#contact) — call or text **(217) 487-6264** or use our contact form. We’ll help you get the curb appeal and peace of mind that come with a well-maintained yard.
+**Ready for a lawn that looks sharp all season?** [Get a free quote](/#contact) — call or text **(309) 703-5386** or use our contact form. We’ll help you get the curb appeal and peace of mind that come with a well-maintained yard.

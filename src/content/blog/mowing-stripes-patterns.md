@@ -37,4 +37,4 @@ Stripes are a **finish detail**—they look best when the lawn is already health
 
 ---
 
-If you love the look but not the work, **Wink’s Lawn Care** can keep your lawn mowed—and striped—on a regular schedule. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+If you love the look but not the work, **Wink’s Lawn Care** can keep your lawn mowed—and striped—on a regular schedule. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

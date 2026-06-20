@@ -42,4 +42,4 @@ If you prefer to minimize synthetic fertilizers, see [eco-friendly lawn care](/b
 
 ---
 
-Fertilizing is one piece of the picture; **regular mowing and edging** keep the lawn looking sharp week to week. If you’d like help with the cutting and trimming, Wink’s Lawn Care has you covered. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Fertilizing is one piece of the picture; **regular mowing and edging** keep the lawn looking sharp week to week. If you’d like help with the cutting and trimming, Wink’s Lawn Care has you covered. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

@@ -39,4 +39,4 @@ Take it one season at a time. You’ll learn what your lawn needs and how much y
 
 There’s no shame in outsourcing. If you’re short on time, don’t enjoy the work, or want a reliable look without the learning curve, **Wink’s Lawn Care** can handle mowing, edging, and trimming on a schedule that works for you. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
 
-**Ready for a lawn you can be proud of?** [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message.
+**Ready for a lawn you can be proud of?** [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message.

@@ -31,4 +31,4 @@ A **sharp blade** gives a clean cut and less stress on the grass. Now is the tim
 
 ---
 
-A solid spring start makes the rest of the year easier. If you’d rather leave the mowing and edging to someone else, **Wink’s Lawn Care** can take over so you can enjoy the season. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+A solid spring start makes the rest of the year easier. If you’d rather leave the mowing and edging to someone else, **Wink’s Lawn Care** can take over so you can enjoy the season. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

@@ -73,4 +73,4 @@ If you love mowing and have the time, these tips will get you close to a pro loo
 
 For more on why a well-kept lawn matters, see [Why a great lawn matters](/blog/why-a-great-lawn-matters). For clean edges and borders, check out [Edging and trimming basics](/blog/how-to-edging-trimming).
 
-**Ready to hand off the mowing?** [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We’ll help you keep your lawn looking pro all season.
+**Ready to hand off the mowing?** [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We’ll help you keep your lawn looking pro all season.

@@ -35,4 +35,4 @@ During drought or water restrictions, see [drought-tolerant lawn care](/blog/dro
 
 ---
 
-Consistent mowing and edging also help your lawn look good regardless of rain. If you’d like **someone else to handle the mowing** so you can focus on watering (or just enjoy your yard), Wink’s Lawn Care is here. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+Consistent mowing and edging also help your lawn look good regardless of rain. If you’d like **someone else to handle the mowing** so you can focus on watering (or just enjoy your yard), Wink’s Lawn Care is here. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

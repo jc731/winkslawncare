@@ -36,4 +36,4 @@ You can have a **great-looking lawn** and still be easier on the environment. It
 
 ---
 
-Eco-friendly lawn care still benefits from **consistent mowing and edging**—whether you do it yourself or hire it out. Wink’s Lawn Care keeps your lawn looking sharp with regular service in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message.
+Eco-friendly lawn care still benefits from **consistent mowing and edging**—whether you do it yourself or hire it out. Wink’s Lawn Care keeps your lawn looking sharp with regular service in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message.

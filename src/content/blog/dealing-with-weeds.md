@@ -32,4 +32,4 @@ Improving [mowing height and frequency](/blog/how-to-mow-like-a-pro), [watering]
 
 ## When to get help
 
-If weeds are taking over or you’re not sure what you’re dealing with, a **lawn care company** that offers weed control can assess and treat. For **mowing, edging, and trimming** only, Wink’s Lawn Care keeps your lawn looking sharp so the rest of your lawn care (including weed strategy) is easier to manage. [Get a free quote](/#contact) — call or text **(217) 487-6264** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.
+If weeds are taking over or you’re not sure what you’re dealing with, a **lawn care company** that offers weed control can assess and treat. For **mowing, edging, and trimming** only, Wink’s Lawn Care keeps your lawn looking sharp so the rest of your lawn care (including weed strategy) is easier to manage. [Get a free quote](/#contact) — call or text **(309) 703-5386** or send us a message. We serve Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas.

@@ -1,0 +1,146 @@
+---
+import { Picture } from "astro:assets";
+import PageLayout from "../../components/PageLayout.astro";
+import PageSection from "../../components/PageSection.astro";
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import LearnWhatWeKnow from "../../components/LearnWhatWeKnow.astro";
+import treeHero from "../../images/tree-removal-cleanup-champaign-il.jpg";
+import limbTrimming from "../../images/tree-limb-trimming-service.jpg";
+import stormDebris from "../../images/storm-debris-cleanup-brush-removal.jpg";
+import cleanupResults from "../../images/tree-service-yard-cleanup-results.jpg";
+---
+<PageLayout
+  title="Tree Trimming Champaign, IL | Storm Debris & Brush Removal — Wink's Lawn Care"
+  description="Tree trimming, storm debris cleanup, and brush removal in Champaign, Rantoul, and Central Illinois. Residential and commercial. Free quote."
+  current="home"
+>
+  <!-- Hero: full-bleed image with overlay and title -->
+  <section class="relative left-1/2 -translate-x-1/2 w-screen max-w-none pb-8 sm:pb-12">
+    <div class="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden">
+      <Picture
+        src={treeHero}
+        formats={["avif", "webp"]}
+        alt=""
+        width={1600}
+        height={717}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        class="absolute inset-0 bg-slate-900/50 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(16,185,129,0.15),_transparent_70%)]"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Tree trimming</h1>
+        <p class="mt-2 max-w-xl text-lg text-white/90">Trimming, storm debris cleanup, and brush removal to keep your property safe and tidy.</p>
+      </div>
+    </div>
+  </section>
+
+  <PageSection title="What we do" prominent accentHeading>
+    <p>
+      Trees and brush need attention to keep your property safe, healthy, and looking its best. From routine trimming to clearing up after a storm, we handle the heavy work so your yard stays clean and well kept.
+    </p>
+    <p>
+      We offer tree trimming and cleanup for <strong>residential</strong> and <strong>commercial</strong> properties in Champaign, Rantoul, Paxton, Mahomet, St. Joseph, and surrounding areas. Whether it's a one-time job or ongoing upkeep, we can tailor the service to your property.
+    </p>
+    <p>
+      <strong>Free quotes.</strong> Call or text <a href="tel:+13097035386" class="inline-block min-h-[48px] py-2 leading-none">(309) 703-5386</a> or <a href="/contact/" class="inline-block min-h-[48px] py-2 leading-none">send us a message</a> to get started.
+    </p>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Trimming" prominent accentHeading>
+      <div class="grid gap-6 md:grid-cols-2 md:items-center md:gap-10">
+        <p>
+          We trim limbs and branches to shape trees, clear walkways and driveways, and keep growth away from your home, fences, and power lines. Regular trimming keeps trees healthy and your property looking neat.
+        </p>
+        <Card class="overflow-hidden">
+          <Picture
+            src={limbTrimming}
+            formats={["avif", "webp"]}
+            alt="Wink's Lawn Care trimming tree limbs from a ladder beside the work truck in Champaign, IL."
+            width={750}
+            height={1000}
+            widths={[375, 600, 750]}
+            sizes="(max-width: 768px) 100vw, 500px"
+            class="aspect-[4/3] w-full rounded-sm object-cover"
+          />
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <PageSection title="Storm debris cleanup" prominent accentHeading>
+    <div class="grid gap-6 md:grid-cols-2 md:items-center md:gap-10">
+      <p class="md:order-2">
+        After high winds or a storm, we clear fallen limbs, branches, and scattered debris from your yard. We get your property cleaned up quickly so it's safe to use and back to looking its best.
+      </p>
+      <Card class="overflow-hidden md:order-1">
+        <Picture
+          src={stormDebris}
+          formats={["avif", "webp"]}
+          alt="Storm debris, cut branches, and log rounds cleared and stacked curbside after tree work."
+          width={750}
+          height={1000}
+          widths={[375, 600, 750]}
+          sizes="(max-width: 768px) 100vw, 500px"
+          class="aspect-[4/3] w-full rounded-sm object-cover"
+        />
+      </Card>
+    </div>
+  </PageSection>
+
+  <section class="bg-slate-50">
+    <PageSection title="Brush removal" prominent accentHeading>
+      <div class="grid gap-6 md:grid-cols-2 md:items-center md:gap-10">
+        <p>
+          Overgrown brush, thickets, and undergrowth can take over a property fast. We cut back and haul away brush to reclaim space, improve curb appeal, and reduce hiding spots for pests.
+        </p>
+        <Card class="overflow-hidden">
+          <Picture
+            src={treeHero}
+            formats={["avif", "webp"]}
+            alt="Felled tree logs and brush cut and cleared across a lawn, ready for haul-away."
+            width={1600}
+            height={717}
+            widths={[400, 700, 1000]}
+            sizes="(max-width: 768px) 100vw, 500px"
+            class="aspect-[4/3] w-full rounded-sm object-cover"
+          />
+        </Card>
+      </div>
+    </PageSection>
+  </section>
+
+  <PageSection title="Quality you can see" prominent accentHeading>
+    <div class="mt-2 max-w-2xl">
+      <Card>
+        <Picture
+          src={cleanupResults}
+          formats={["avif", "webp"]}
+          alt="A tidy, cleared yard with a cared-for lawn after professional tree trimming and cleanup."
+          width={1200}
+          height={1600}
+          widths={[400, 600, 800]}
+          sizes="(max-width: 640px) 100vw, 560px"
+          class="mb-3 aspect-[4/3] w-full rounded-sm object-cover"
+        />
+        <p class="text-sm text-slate-600">
+          Trimmed trees and cleared brush keep your property safe, open, and well kept—improving curb appeal and making the whole yard look cared for.
+        </p>
+      </Card>
+    </div>
+    <p class="mt-6">
+      <Button href="/contact/" variant="primary">Get a free quote</Button>
+    </p>
+  </PageSection>
+
+  <LearnWhatWeKnow slugs={["how-to-edging-trimming", "why-a-great-lawn-matters", "fall-lawn-care"]} />
+</PageLayout>
