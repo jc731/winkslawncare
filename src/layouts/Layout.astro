@@ -4,18 +4,38 @@ import ogImage from '../images/winks_logo.png';
 interface Props {
   title?: string;
   description?: string;
+  /** Optional per-page social share image (root-relative or absolute path). Defaults to the logo. */
+  image?: string;
 }
 const {
   title = "Wink's Lawn Care",
   description = "Lawn care services in Central Illinois — Champaign area and surrounding.",
+  image,
 } = Astro.props;
 const canonicalURL = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : null;
+const shareImage = image ?? ogImage.src;
 const ogImageURL = Astro.site
-  ? new URL(ogImage.src, Astro.site).href
-  : ogImage.src;
+  ? new URL(shareImage, Astro.site).href
+  : shareImage;
+// Use a large card only when a real per-page photo is supplied; the logo stays a small summary.
+const twitterCard = image ? "summary_large_image" : "summary";
 const siteName = "Wink's Lawn Care";
+const homeURL = Astro.site ? new URL("/", Astro.site).href : "/";
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: siteName,
+  description:
+    "Lawn care in Champaign, Rantoul, and Central Illinois — mowing, edging and trimming, seasonal cleanup, hedge and tree trimming, and weed removal.",
+  url: homeURL,
+  telephone: "+1-309-703-5386",
+  image: Astro.site ? new URL(ogImage.src, Astro.site).href : ogImage.src,
+  areaServed: ["Champaign", "Rantoul", "Paxton", "Mahomet", "St. Joseph"].map(
+    (name) => ({ "@type": "City", name: `${name}, IL` }),
+  ),
+};
 ---
 
 <!doctype html>
@@ -35,7 +55,7 @@ const siteName = "Wink's Lawn Care";
     {canonicalURL && <meta property="og:url" content={canonicalURL} />}
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
@@ -47,6 +67,7 @@ const siteName = "Wink's Lawn Care";
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} is:inline />
   </head>
   <body class="min-h-full w-full m-0 font-sans antialiased">
     <slot />

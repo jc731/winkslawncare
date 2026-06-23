@@ -9,12 +9,14 @@ interface Props {
   title?: string;
   description?: string;
   current?: 'home' | 'blog' | 'contact';
+  /** Optional per-page social share image (root-relative or absolute path). Defaults to the logo. */
+  image?: string;
   /** Optional class for the main content area (e.g. subtle grey background on blog pages) */
   mainClass?: string;
 }
-const { title, description, current, mainClass } = Astro.props;
+const { title, description, current, image, mainClass } = Astro.props;
 ---
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={image}>
   <div class="flex flex-col min-h-full bg-white">
     <header class="py-5 sm:py-6">
       <Container>
