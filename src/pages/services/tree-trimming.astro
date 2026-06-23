@@ -9,6 +9,38 @@ import treeHero from "../../images/tree-removal-cleanup-champaign-il.jpg";
 import limbTrimming from "../../images/tree-limb-trimming-service.jpg";
 import stormDebris from "../../images/storm-debris-cleanup-brush-removal.jpg";
 import cleanupResults from "../../images/tree-service-yard-cleanup-results.jpg";
+
+const pageUrl = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
+const homeUrl = Astro.site ? new URL("/", Astro.site).href : "/";
+const serviceAreas = [
+  "Champaign",
+  "Rantoul",
+  "Paxton",
+  "Mahomet",
+  "St. Joseph",
+];
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Tree trimming",
+  name: "Tree Trimming, Storm Debris Cleanup & Brush Removal",
+  description:
+    "Tree trimming, storm debris cleanup, and brush removal for residential and commercial properties in Champaign, Rantoul, and Central Illinois.",
+  url: pageUrl,
+  areaServed: serviceAreas.map((name) => ({
+    "@type": "City",
+    name: `${name}, IL`,
+  })),
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Wink's Lawn Care",
+    telephone: "+1-309-703-5386",
+    url: homeUrl,
+    areaServed: "Central Illinois",
+  },
+};
 ---
 <PageLayout
   title="Tree Trimming Champaign, IL | Storm Debris & Brush Removal — Wink's Lawn Care"
@@ -143,4 +175,6 @@ import cleanupResults from "../../images/tree-service-yard-cleanup-results.jpg";
   </PageSection>
 
   <LearnWhatWeKnow slugs={["how-to-edging-trimming", "why-a-great-lawn-matters", "fall-lawn-care"]} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} is:inline />
 </PageLayout>
